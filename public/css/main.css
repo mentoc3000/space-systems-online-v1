@@ -1,0 +1,68 @@
+/***GENERAL***/
+
+html, body {
+   margin:0;
+   padding:0;
+   height:100%;
+   width:100%;
+}
+
+.container {
+   max-width:940px;
+   margin:0 auto;
+}
+
+/***HEADER***/
+
+.header {
+   background-color:red;
+   margin:10px;
+   color:white;
+   margin:0 auto;
+}
+
+.header .container {
+   text-align: center;
+   background-color:red;
+   color:white;
+}
+
+.header h1 {
+   font-weight:700;
+}
+
+.header ul {
+   list-style-type:none;
+   display: block;
+   margin: 20px 0;
+   padding:0;
+}
+
+.header li {
+   display:inline-block;
+   margin:0px 0;
+}
+
+.button {
+   padding:10px 20px;
+   background-color:white;
+   color:red;
+   text-align:center;
+   display:block;
+   text-decoration:none;
+}
+
+.button:hover {
+   background-color: grey;
+   color:white;
+   text-decoration:none;
+}
+
+.button:focus {
+   text-decoration:none;
+}
+
+.button.active {
+   background-color:grey;
+   color:white;
+}
