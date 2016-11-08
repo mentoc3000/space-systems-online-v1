@@ -1,0 +1,24 @@
+{
+  "name": "space-systems-online",
+  "version": "0.1.0",
+  "description": "Online astrodynamics simulator",
+  "main": "index.js",
+  "dependencies": {
+    "bower": "^1.7.9",
+    "express": "^4.14.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mentoc3000/space-systems-online.git"
+  },
+  "author": "JP Sheehan",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/mentoc3000/space-systems-online/issues"
+  },
+  "homepage": "https://github.com/mentoc3000/space-systems-online#readme"
+}

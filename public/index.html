@@ -2,9 +2,10 @@
 <html>
 <head>
 
-<!--CSS-->
 <link href="css/main.css" rel="stylesheet"/>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.min.js"></script>
 
 </head>
 <body ng-app="SSOApp">
@@ -13,21 +14,24 @@
    <div class="container">
       <h1 class="pull-left">Space Systems Online</h1>
       <ul class="pull-right">
-         <li><a href=# class="button active">Home</a></li>
-         <li><a href=# class="button">Simulator</a></li>
-         <li><a href=# class="button">About</a></li>
-         <li><a href=# class="button">Contact</a></li>
+         <li><a href='#/' class="button active">Home</a></li>
+         <li><a href='#/simulator' class="button">Simulator</a></li>
+         <li><a href='#/about' class="button">About</a></li>
+         <li><a href='#/contact' class="button">Contact</a></li>
       </ul>
    </div>
 </div>
 
 <div ng-view></div>
 
-<!--JS-->
+<!-- Vendor -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.min.js"></script>
+
+<!-- Scripts -->
 <script src="js/interact.js"></script>
+
+<!-- Modules -->
+<script src="js/app.js"></script>
 
 </body>
 </html>
