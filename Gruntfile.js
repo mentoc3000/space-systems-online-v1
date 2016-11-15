@@ -2,7 +2,7 @@ module.exports = function(grunt) {
 
    // load plugins
    [
-      // 'grunt-contrib-jasmine',
+      // 'grunt-karma',
       'grunt-contrib-jshint',
       'grunt-exec'
    ].forEach(function(task){
@@ -24,6 +24,13 @@ module.exports = function(grunt) {
             'app/tests/**/*.js'
          ]
       },
+      // karma: {
+      //    unit: {
+      //       configFile: 'karma.conf.js',
+      //       singleRun: true,
+      //       browsers: ['PhantomJS']
+      //    }
+      // },
       exec: {
          linkchecker: {
             cmd: 'linkchecker http://localhost:3000'
@@ -33,7 +40,10 @@ module.exports = function(grunt) {
 
 
    // register tasks
-   grunt.registerTask('default',['jshint','exec']);
+   grunt.registerTask('default',[
+      'jshint',
+      // 'karma',
+      'exec']);
 
 
 };
