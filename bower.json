@@ -1,0 +1,20 @@
+{
+  "name": "space-systems-online",
+  "description": "Online astrodynamics simulator",
+  "main": "server.js",
+  "authors": [
+    "JP Sheehan"
+  ],
+  "license": "UNLICENSED",
+  "homepage": "https://github.com/mentoc3000/space-systems-online",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-mocks": "^1.5.8"
+  }
+}
