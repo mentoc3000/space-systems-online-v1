@@ -2,10 +2,10 @@
    <div class="container">
       <h1 class="pull-left">Space Systems Online</h1>
       <ul class="pull-right">
-         <li><a href='#/' class="button active">Home</a></li>
-         <li><a href='#/simulator' class="button">Simulator</a></li>
-         <li><a href='#/about' class="button">About</a></li>
-         <li><a href='#/contact' class="button">Contact</a></li>
+         <li><a href='#/' class="button" ng-class="{active: activeTab === 'home'}">Home</a></li>
+         <li><a href='#/simulator' class="button" ng-class="{active: activeTab === 'simulator'}">Simulator</a></li>
+         <li><a href='#/about' class="button" ng-class="{active: activeTab === 'about'}">About</a></li>
+         <li><a href='#/contact' class="button" ng-class="{active: activeTab === 'contact'}">Contact</a></li>
       </ul>
    </div>
 </div>

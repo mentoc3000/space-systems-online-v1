@@ -6,19 +6,23 @@ app.config(function($routeProvider){
    $routeProvider
       .when('/',{
          templateUrl: 'views/home.html',
-         controller: 'MainController'
+         controller: 'MainController',
+         activeTab: 'home'
       })
       .when('/simulator',{
          templateUrl: 'views/script.html',
-         controller: 'MainController'
+         controller: 'MainController',
+         activeTab: 'simulator'
       })
       .when('/about',{
          templateUrl: 'views/about.html',
-         controller: 'MainController'
+         controller: 'MainController',
+         activeTab: 'about'
       })
       .when('/contact',{
          templateUrl: 'views/contact.html',
-         controller: 'MainController'
+         controller: 'MainController',
+         activeTab: 'contact'
       })
       .otherwise({
          redirectTo: '/'
