@@ -8,7 +8,7 @@ app.config(function($routeProvider){
          templateUrl: 'views/home.html'
       })
       .when('/simulator',{
-         templateUrl: 'views/simulator.html'
+         templateUrl: 'views/script.html'
       })
       .when('/about',{
          templateUrl: 'views/about.html'
