@@ -7,7 +7,7 @@
    bottom:0;
 }
 
-textarea {
+.script textarea {
    position: absolute;
    top:60px;
    bottom:40px;
@@ -18,7 +18,7 @@ textarea {
    overflow-y:auto;
 }
 
-input[type="submit"] {
+.script input[type="submit"] {
    position:fixed;
    bottom:5px;
    right:55%;
