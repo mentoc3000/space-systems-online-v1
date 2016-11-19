@@ -24,6 +24,16 @@ app.config(function($routeProvider){
          controller: 'MainController',
          activeTab: 'contact'
       })
+      .when('/login',{
+         templateUrl: 'views/login.html',
+         controller: 'LogInController',
+         activeTab: 'login'
+      })
+      .when('/signup', {
+         templateUrl: 'views/signup.html',
+         controller: 'SignUpController',
+         activeTab: 'signup'
+      })
       .otherwise({
          redirectTo: '/'
       });
