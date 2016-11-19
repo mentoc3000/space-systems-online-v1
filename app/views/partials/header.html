@@ -1,28 +1,19 @@
 <div class="header">
    <div class="container">
-<!--
-      <h1 class="pull-left">Space Systems Online</h1>
-      <ul class="pull-right">
-         <li><a href='#/' class="button" ng-class="{active: activeTab === 'home'}">Home</a></li>
-         <li><a href='#/simulator' class="button" ng-class="{active: activeTab === 'simulator'}">Simulator</a></li>
-         <li><a href='#/about' class="button" ng-class="{active: activeTab === 'about'}">About</a></li>
-         <li><a href='#/contact' class="button" ng-class="{active: activeTab === 'contact'}">Contact</a></li>
-      </ul>
--->
-      <nav class="navbar navbar-default">
-         <div class="container-fluid">
+      <nav class="navbar navbar-default navbar-custom">
+         <!-- <div class="container-fluid"> -->
                <a class="navbar-brand" href="#">Space Systems Online</a>
                <ul class="nav navbar-nav">
-                  <li><a href="#/">Home</a></li>
-                  <li><a href="#/simulator">Simulator</a></li>
-                  <li><a href="#/contact">Contact</a></li>
-                  <li><a href="#/about">About</a></li>
+                  <li ng-class="{active: activeTab === 'home'}"><a href="#/">Home</a></li>
+                  <li ng-class="{active: activeTab === 'simulator'}"><a href="#/simulator">Simulator</a></li>
+                  <li ng-class="{active: activeTab === 'contact'}"><a href="#/contact">Contact</a></li>
+                  <li ng-class="{active: activeTab === 'about'}"><a href="#/about">About</a></li>
                </ul>
                <ul class="nav navbar-nav pull-right">
                   <li><a href="#">Log in</a></li>
                   <li><a href="#">Sign up</a></li>
                </ul>
-         </div>
+         <!-- </div> -->
       </nav>
    </div>
 </div>
