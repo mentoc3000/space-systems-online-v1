@@ -1,4 +1,4 @@
-describe('MainController Tests', function(){
+describe('HeaderController Tests', function(){
 
 
    beforeEach(angular.mock.module('SSOApp'));
@@ -24,7 +24,7 @@ describe('MainController Tests', function(){
    describe('Verify connection', function() {
       it('Has the correct active tab',function(){
          var scope = $rootScope.$new();
-         var controller = $controller('MainController', {
+         var controller = $controller('HeaderController', {
             $scope: scope,
             $route: route
          });
