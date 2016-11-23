@@ -98,6 +98,7 @@ html, body, ng-view {
 }
 
 /***Log In/Sign Up***/
+/*
 .form-signin
 {
    max-width: 330px;
@@ -174,3 +175,4 @@ html, body, ng-view {
    display: block;
    margin-top: 10px;
 }
+*/
