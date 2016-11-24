@@ -1,7 +1,8 @@
 describe('Authentication Service Test',function(){
-   describe('Base64 Encoder Test',function(){
 
-      beforeEach(angular.mock.module('SSOApp'));
+   beforeEach(angular.mock.module('SSOApp'));
+
+   describe('Base64 Encoder Test',function(){
 
       var Base64;
       beforeEach(inject(function(_Base64_){
@@ -21,5 +22,35 @@ describe('Authentication Service Test',function(){
          var decoded = Base64.decode(code);
          expect(decoded).toBe(message);
       });
+   });
+
+   describe('Authentication Test', function() {
+
+      var AuthenticationServce;
+      beforeEach(inject(function(_AuthenticationService_){
+         AuthenticationService = _AuthenticationService_;
+      }));
+
+      describe('Login', function() {
+         it('Succesfully logs in',function() {
+            var username = 'test';
+            var password = 'test';
+
+            AuthenticationService.Login(username, password, function(response){
+               expect(response.success).toBe(true);
+            });
+         });
+
+         it('Rejects bad credentials',function() {
+            var username = 'criminal';
+            var password = '12345';
+
+            AuthenticationService.Login(username, password, function(response) {
+               expect(response.success).toBe(false);
+               expect(response.message).toBe('Username or password is incorrect');
+            });
+         });
+      });
+
    });
 });
