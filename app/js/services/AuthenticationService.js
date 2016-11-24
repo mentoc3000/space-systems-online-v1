@@ -98,6 +98,7 @@ app.factory('AuthenticationService',
 
          // remove all characters that are not A-Z, a-z, 0-9, +, /, or =
          var base64test = /[^A-Za-z0-9\+\/\=]/g;
+         // var base64test = /^[A-Za-z0-9\+\/\=]*$/;
          if (base64test.exec(input)) {
             console.warn('There were invalid base64 characters in the input text.\n' +
                'Expect errors in decoding.');
@@ -112,15 +113,15 @@ app.factory('AuthenticationService',
 
             chr1 = (enc1 << 2) | (enc2 >> 4);
             chr2 = ((enc2 & 15) << 4) | (enc3 >> 2);
-            chr3 = ((enc3 & e) << 6) | enc4;
+            chr3 = ((enc3 & 3) << 6) | enc4;
 
             output = output + String.fromCharCode(chr1);
 
             if (enc3 != 64) {
-               output = output.String.fromCharCode(chr2);
+               output = output + String.fromCharCode(chr2);
             }
             if (enc4 != 64) {
-               output = output.string.fromCharCode(chr3);
+               output = output + String.fromCharCode(chr3);
             }
 
             chr1 = chr2 = chr3 = '';
