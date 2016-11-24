@@ -35,10 +35,11 @@ describe('Authentication Service Test',function(){
 
    describe('Authentication Test', function() {
 
-      var AuthenticationServce, $rootScope;
-      beforeEach(inject(function(_AuthenticationService_, _$rootScope_){
+      var AuthenticationServce, $rootScope, $cookieStore;
+      beforeEach(inject(function(_AuthenticationService_, _$rootScope_, _$cookieStore_){
          AuthenticationService = _AuthenticationService_;
          $rootScope = _$rootScope_;
+         $cookieStore = _$cookieStore_;
       }));
 
       describe('Login', function() {
@@ -66,19 +67,32 @@ describe('Authentication Service Test',function(){
          var username = 'user1234';
          var password = 'notAgr8PW';
 
-
          it('Stores the username in rootScope',function() {
          AuthenticationService.SetCredentials(username,password);
             expect($rootScope.globals.currentUser.username).toBe(username);
          });
 
          it('Stores encoded authorization', function() {
-         AuthenticationService.SetCredentials(username,password);
+            AuthenticationService.SetCredentials(username,password);
             expect($rootScope.globals.currentUser.authdata.indexOf(username)).toBe(-1);
             expect($rootScope.globals.currentUser.authdata.indexOf(password)).toBe(-1);
             expect($rootScope.globals.currentUser.authdata).toBeTruthy();
          });
+
+         it('Stores globals in cookie', function() {
+            AuthenticationService.SetCredentials(username,password);
+            expect($rootScope.globals).toEqual($cookieStore.get('globals'));
+         });
+
       });
+
+     /*
+      describe('ClearCredentials',function() {
+         var username = 'user1234';
+         var password = 'notAgr8PW';
+         var authdata;
+         */
+
 
    });
 });
