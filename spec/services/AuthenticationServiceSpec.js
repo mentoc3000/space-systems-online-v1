@@ -22,13 +22,23 @@ describe('Authentication Service Test',function(){
          var decoded = Base64.decode(code);
          expect(decoded).toBe(message);
       });
+
+      /*
+      it('Fails with special characters', function() {
+         var message = 'abcd!';
+         var code = Base64.encode(message);
+         var decoded = Base64.decode(code);
+         expect(decoded).not.toBe(message);
+      });
+      */
    });
 
    describe('Authentication Test', function() {
 
-      var AuthenticationServce;
-      beforeEach(inject(function(_AuthenticationService_){
+      var AuthenticationServce, $rootScope;
+      beforeEach(inject(function(_AuthenticationService_, _$rootScope_){
          AuthenticationService = _AuthenticationService_;
+         $rootScope = _$rootScope_;
       }));
 
       describe('Login', function() {
@@ -49,6 +59,24 @@ describe('Authentication Service Test',function(){
                expect(response.success).toBe(false);
                expect(response.message).toBe('Username or password is incorrect');
             });
+         });
+      });
+
+      describe('SetCredentials',function() {
+         var username = 'user1234';
+         var password = 'notAgr8PW';
+
+
+         it('Stores the username in rootScope',function() {
+         AuthenticationService.SetCredentials(username,password);
+            expect($rootScope.globals.currentUser.username).toBe(username);
+         });
+
+         it('Stores encoded authorization', function() {
+         AuthenticationService.SetCredentials(username,password);
+            expect($rootScope.globals.currentUser.authdata.indexOf(username)).toBe(-1);
+            expect($rootScope.globals.currentUser.authdata.indexOf(password)).toBe(-1);
+            expect($rootScope.globals.currentUser.authdata).toBeTruthy();
          });
       });
 
