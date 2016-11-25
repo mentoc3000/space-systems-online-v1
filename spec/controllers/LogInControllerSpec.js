@@ -18,9 +18,6 @@ describe('LogInController Tests', function(){
 
       beforeEach(inject(function(_AuthenticationService_){
          AuthenticationService = _AuthenticationService_;
-         spyOn(AuthenticationService,'ClearCredentials');
-         spyOn(AuthenticationService,'Login');
-         spyOn(AuthenticationService,'SetCredentials');
          fakeWindow = {
             location: {
                href: ''
@@ -29,24 +26,59 @@ describe('LogInController Tests', function(){
       }));
 
 
-      it('Logs in successfully',function() {
-         var scope = $rootScope.$new();
-         scope.username = 'test';
-         scope.password = 'test';
-         var controller = $controller('LogInController', {
-            $scope: scope,
-            $route: route,
-            $window: fakeWindow
+      describe('Logs in successfully',function() {
+
+         var scope;
+
+         beforeEach(function(){
+            scope = $rootScope.$new();
+            scope.username = 'test';
+            scope.password = 'test';
          });
 
-         expect(AuthenticationService.ClearCredentials).toHaveBeenCalled();
+         it('Clears credentials',function(done){
+         spyOn(AuthenticationService,'ClearCredentials').and.callFake(function(){ done(); });
+            var controller = $controller('LogInController', {
+               $scope: scope,
+               $route: route,
+               $window: fakeWindow
+            });
+            expect(AuthenticationService.ClearCredentials).toHaveBeenCalled();
+         });
 
-         scope.login();
+         it('Logs in',function(done){
+         spyOn(AuthenticationService,'Login').and.callFake(function(){ done(); });
+            var controller = $controller('LogInController', {
+               $scope: scope,
+               $route: route,
+               $window: fakeWindow
+            });
 
-         expect(scope.dataLoading).toBe(true);
-         expect(AuthenticationService.Login).toHaveBeenCalledWith(scope.username,scope.password,jasmine.any(Function));
-         // expect(AuthenticationService.SetCredentials).toHaveBeenCalledWith(scope.username,scope.password);
-         // expect(fakeWindow.location.href).toBe('/simulator');
+            scope.login();
+
+            expect(scope.dataLoading).toBe(true);
+            expect(AuthenticationService.Login).toHaveBeenCalledWith(scope.username,scope.password,jasmine.any(Function));
+            // expect(fakeWindow.location.href).toBe('/simulator');
+         });
+
+
+         /* Implement for http credentials
+         it('Sets credentials',function(done){
+         spyOn(AuthenticationService,'SetCredentials').and.callFake(function(){ done(); });
+            setTimeout(function() {
+                       done();
+                     }, 9000);
+            var controller = $controller('LogInController', {
+               $scope: scope,
+               $route: route,
+               $window: fakeWindow
+            });
+            
+            scope.login();
+            expect(AuthenticationService.SetCredentials).toHaveBeenCalledWith(scope.username,scope.password);
+         });
+         */
+
       });
    });
 });
