@@ -35,7 +35,7 @@ describe('Authentication Service Test',function(){
 
    describe('Authentication Test', function() {
 
-      var AuthenticationServce, $rootScope, $cookieStore, $http;
+      var AuthenticationService, $rootScope, $cookieStore, $http;
       beforeEach(inject(function(_AuthenticationService_, _$rootScope_, _$cookieStore_, _$http_){
          AuthenticationService = _AuthenticationService_;
          $rootScope = _$rootScope_;
