@@ -1,5 +1,6 @@
 app.controller('HeaderController',['$scope','$route',function($scope,$route) {
-   $scope.test = true;
-   $scope.activeTab = $route.current.activeTab;
+   var vm = this;
+   this.test = true;
+   this.activeTab = $route.current.activeTab;
 }]);
 

@@ -1,21 +1,29 @@
 app.controller('LogInController',
-   ['$scope','$route','$rootScope','$location','AuthenticationService',
-      function($scope,$route,$rootScope,$location,AuthenticationService) {
+   ['$scope','$route','$rootScope','$location','AuthenticationService', 'FlashService',
+      function($scope,$route,$rootScope,$location,AuthenticationService,FlashService) {
+         var vm = this;
 
-         AuthenticationService.ClearCredentials();
+         vm.login = login;
 
-         $scope.login = function() {
-            $scope.dataLoading = true;
-            AuthenticationService.Login($scope.username, $scope.password, function(response) {
-               console.log(response);
+         (function initController() {
+            // reset login status
+            AuthenticationService.ClearCredentials();
+         })();
+
+         function login() {
+            vm.dataLoading = true;
+            AuthenticationService.Login(vm.username, vm.password, function(response) {
                if(response.success) {
-                  AuthenticationService.SetCredentials($scope.username, $scope.password);
+                  AuthenticationService.SetCredentials(vm.username, vm.password);
                   $location.path('/simulator');
                } else {
-                  $scope.error = response.message;
-                  $scope.dataLoading = false;
+                  // $scope.error = response.message;
+                  FlashService.Error(resopnse.message);
+                  vm.dataLoading = false;
                }
             });
-         };
-      }]);
+         }
+      }
+   ]
+);
 
