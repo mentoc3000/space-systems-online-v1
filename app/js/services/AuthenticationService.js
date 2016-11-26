@@ -1,9 +1,13 @@
 app.factory('AuthenticationService',
-   ['Base64', '$http', '$cookieStore', '$rootScope', '$timeout',
+   ['Base64', '$http', '$cookieStore', '$rootScope', '$timeout', 'UserService',
       function(Base64, $http, $cookieStore, $rootScope, $timeout) {
          var service = {};
-         
-         service.Login = function(username, password, callback) {
+
+         service.Login = Login;
+         service.SetCredentials = SetCredentials;
+         service.ClearCredentials = ClearCredentials;
+
+         function Login(username, password, callback) {
 
             /* Dummy authentication for testing
              * Uses $timeout to simulate api call */
@@ -26,9 +30,9 @@ app.factory('AuthenticationService',
             //callback(response);
             //});
 
-         };
+         }
 
-         service.SetCredentials = function(username, password) {
+         function SetCredentials(username, password) {
             var authdata = Base64.encode(username + ':' + password);
 
             $rootScope.globals = {
@@ -40,14 +44,14 @@ app.factory('AuthenticationService',
 
             $http.defaults.headers.common['Authorization'] = 'Basic' + authdata; // jshint ignore: line
             $cookieStore.put('globals', $rootScope.globals);
-         };
+         }
 
-         service.ClearCredentials = function() {
+         function ClearCredentials() {
             $rootScope.globals = {};
             $cookieStore.remove('globals');
             $http.defaults.headers.common.Authorization = 'Basic';
-         };
-         
+         }
+
          return service;
       }])
 .factory('Base64', function(){
@@ -78,7 +82,7 @@ app.factory('AuthenticationService',
                   enc4 = 64;
                }
 
-            output = output + 
+            output = output +
                keyStr.charAt(enc1) +
                keyStr.charAt(enc2) +
                keyStr.charAt(enc3) +
