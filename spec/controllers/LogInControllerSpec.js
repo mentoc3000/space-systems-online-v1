@@ -14,15 +14,9 @@ describe('LogInController Tests', function(){
    describe('login',function(){
 
       var AuthenticationService;
-      var fakeWindow;
 
       beforeEach(inject(function(_AuthenticationService_){
          AuthenticationService = _AuthenticationService_;
-         fakeWindow = {
-            location: {
-               href: ''
-            }
-         };
       }));
 
 
@@ -37,24 +31,22 @@ describe('LogInController Tests', function(){
          });
 
          it('Clears credentials',function(done){
-         spyOn(AuthenticationService,'ClearCredentials').and.callFake(function(){ done(); });
+            spyOn(AuthenticationService,'ClearCredentials').and.callFake(function(){ done(); });
             var controller = $controller('LogInController', {
                $scope: scope,
                $route: route,
-               $window: fakeWindow
             });
             expect(AuthenticationService.ClearCredentials).toHaveBeenCalled();
          });
 
          it('Logs in',function(done){
-         spyOn(AuthenticationService,'Login').and.callFake(function(){ done(); });
+            spyOn(AuthenticationService,'Login').and.callFake(function(){ done(); });
             var controller = $controller('LogInController', {
                $scope: scope,
                $route: route,
-               $window: fakeWindow
             });
 
-            scope.login();
+            controller.login();
 
             expect(scope.dataLoading).toBe(true);
             expect(AuthenticationService.Login).toHaveBeenCalledWith(scope.username,scope.password,jasmine.any(Function));
@@ -73,7 +65,7 @@ describe('LogInController Tests', function(){
                $route: route,
                $window: fakeWindow
             });
-            
+
             scope.login();
             expect(AuthenticationService.SetCredentials).toHaveBeenCalledWith(scope.username,scope.password);
          });

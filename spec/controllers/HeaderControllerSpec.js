@@ -29,8 +29,8 @@ describe('HeaderController Tests', function(){
             $route: route
          });
 
-         expect(scope.test).toBe(true);
-         expect(scope.activeTab).toBe(activeTab);
+         expect(controller.test).toBe(true);
+         expect(controller.activeTab).toBe(activeTab);
       });
    });
 
