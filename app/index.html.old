@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8"/>
+   <title>Space Systems Online</title>
+
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link href="app-content/css/main.css" rel="stylesheet"/>
+   <link href="app-content/css/simulator.css" rel="stylesheet"/>
+
+</head>
+<body ng-app="SSOApp">
+
+   <main ui-view></main>
+
+   <!-- Vendor -->
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+   <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.js"></script> -->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+   <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+
+   <!-- Scripts -->
+
+   <!-- Modules -->
+   <script src="app.js"></script>
+
+   <!-- Controllers -->
+   <script src="header/HeaderController.js"></script>
+   <!-- <script src="login/LogInController.js"></script> -->
+   <!-- <script src="register/RegisterController.js"></script> -->
+   <script src="main/MainController.js"></script>
+   <script src="account/AccountController.js"></script>
+
+   <!-- Services -->
+   <!-- <script src='app-services/AuthenticationService.js'></script> -->
+   <script src='app-services/UserService.js'></script>
+   <script src='app-services/FlashService.js'></script>
+
+</body>
+
+</html>

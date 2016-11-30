@@ -4,8 +4,20 @@
   "description": "Online astrodynamics simulator",
   "main": "server.js",
   "dependencies": {
+    "angular-ui-router": "^0.3.2",
+    "bcryptjs": "^2.3.0",
+    "body-parser": "^1.15.2",
     "bower": "^1.7.9",
-    "express": "^4.14.0"
+    "ejs": "^2.5.3",
+    "express": "^4.14.0",
+    "express-jwt": "^5.1.0",
+    "express-session": "^1.14.2",
+    "jsonwebtoken": "^7.1.9",
+    "lodash": "^4.17.2",
+    "mongodb": "^2.2.11",
+    "mongoskin": "^2.1.0",
+    "q": "^1.4.1",
+    "rootpath": "^0.1.2"
   },
   "devDependencies": {
     "angular-mocks": "^1.5.8",

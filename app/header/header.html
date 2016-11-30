@@ -1,0 +1,22 @@
+<div class="header" ng-controller="HeaderController as head">
+   <div class="container">
+      <nav class="navbar navbar-default navbar-custom">
+         <a class="navbar-brand" href="#/">Space Systems Online</a>
+         <ul class="nav navbar-nav">
+            <li ng-class="{active: head.activeTab === 'home'}"><a href="#/">Home</a></li>
+            <li ng-class="{active: head.activeTab === 'simulator'}"><a href="#/simulator">Simulator</a></li>
+            <li ng-class="{active: head.activeTab === 'contact'}"><a href="#/contact">Contact</a></li>
+            <li ng-class="{active: head.activeTab === 'about'}"><a href="#/about">About</a></li>
+         </ul>
+         <ul class="nav navbar-nav pull-right">
+            <li><a href="#/login" ng-class="{active: head.activeTab === 'login'}">Log in</a></li>
+            <li><a href="#/register" ng-class="{active: head.activeTab === 'register'}">Sign up</a></li>
+         </ul>
+      </nav>
+
+      <div class="flash-message" ng-if="flash">
+         <div class="{{'alert alert-' + flash.type}}" ng-bind="flash.message"></div>
+      </div>
+   </div>
+</div>
+

@@ -1,0 +1,32 @@
+<div ng-include src="'header/header.html'"></div>
+
+<div class="contact">
+   <div class="container">
+      <h2>Contact</h2>
+      <form>
+         <label for="name">Name</label><br>
+         <input type="text" id="name" placeholder="Name"><br><br>
+
+         <label for="email">Email</label><br>
+         <input type="text" id="email" placeholder="Email"><br><br>
+
+         <label for="topic">Topic</label><br>
+         <input type="radio" name="topic" id="bug" value="Bug">
+         <label for="bug">Bug</label><br>
+         <input type="radio" name="topic" id="feature" value="Feature Request">
+         <label for="feature">Feature Request</label><br>
+         <input type="radio" name="topic" id="other" value="Other">
+         <label for="other">Other</label><br><br>
+
+         <label for="subject">Subject</label><br>
+         <input type="text" id="subject" placeholder="Subject"><br><br>
+
+         <label for="message">Message</label><br>
+         <textarea id="message" placeholder="Message" rows="12"></textarea><br><br>
+
+         <div class="center">
+            <input type="submit" value="Submit">
+         </div>
+      </form>
+   </div>
+</div>

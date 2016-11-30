@@ -13,10 +13,11 @@ describe('LogInController Tests', function(){
 
    describe('login',function(){
 
-      var AuthenticationService;
+      var AuthenticationService, FlashService;
 
-      beforeEach(inject(function(_AuthenticationService_){
+      beforeEach(inject(function(_AuthenticationService_, _FlashService_){
          AuthenticationService = _AuthenticationService_;
+         FlashService = _FlashService_;
       }));
 
 
@@ -71,6 +72,31 @@ describe('LogInController Tests', function(){
          });
          */
 
+      });
+
+      describe('Blocks log in from bad credentials',function() {
+
+         var scope;
+
+         beforeEach(function(){
+            scope = $rootScope.$new();
+         });
+
+         it('Blocks unfound username',function(done){
+            scope.username = 'badUser';
+            scope.password = 'test';
+
+            spyOn(FlashService,'Error');
+            var controller = $controller('LogInController', {
+               $scope: scope,
+               $route: route,
+            });
+
+            controller.login();
+
+            expect(controller.dataLoading).toBe(true);
+            expect(FlashService.Error).toHaveBeenCalled();
+         });
       });
    });
 });
