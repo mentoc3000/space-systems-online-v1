@@ -14,8 +14,8 @@ function config($stateProvider, $urlRouterProvider){
    $stateProvider
    .state('home', {
       url:'/',
-      templateUrl: 'home/home.html',
-      controller: 'HomeController',
+      templateUrl: 'main/home.html',
+      controller: 'MainController',
       controllerAs: 'vm',
       data: { activeTab: 'home'}
    })
@@ -25,14 +25,6 @@ function config($stateProvider, $urlRouterProvider){
       controller: 'AccountController',
       controllerAs: 'vm',
       data: { activeTab: 'account' }
-   });
-   /*
-   .state('home', {
-      url: '/',
-      templateUrl: 'main/home.html',
-      controller: 'MainController',
-      controllerAs: 'vm',
-      data: { activeTab: 'home' }
    })
    .state('simulator', {
       url: '/simulator',
@@ -55,21 +47,6 @@ function config($stateProvider, $urlRouterProvider){
       controllerAs: 'vm',
       data: { activeTab: 'contact' }
    });
-   .state('login', {
-      url: '/login',
-      templateUrl: 'login/login.html',
-      controller: 'LogInController',
-      controllerAs: 'vm',
-      data: { activeTab: 'login' }
-   })
-   .state('register', {
-      url: '/register',
-      templateUrl: 'register/register.html',
-      controller: 'RegisterController',
-      controllerAs: 'vm',
-      data: { activeTab: 'register' }
-   });
-   */
 }
 
    function run($http, $rootScope, $window) {

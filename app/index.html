@@ -5,19 +5,34 @@
    <title>Login Example</title>
 
    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
-   <link href="app-content/css/app.css" rel="stylesheet" />
+   <!-- <link href="app-content/css/app.css" rel="stylesheet" /> -->
+   <link href="app-content/css/main.css" rel="stylesheet"/>
+   <link href="app-content/css/simulator.css" rel="stylesheet"/>
 </head>
-<body class="container">
-   <header>
-      <ul class="nav nav-tabs">
-         <li ng-class="{active: activeTab === 'home'}"><a ui-sref="home">Home</a></li>
-         <li ng-class="{active: activeTab === 'account'}"><a ui-sref="account">Account</a></li>
-         <li><a href="/login" target="_self">Logout</a></li>
-      </ul>
-      <div class="flash-message" ng-if="flash">
-         <div class="{{'alert alert-' + flash.type}}" ng-bind="flash.message"></div>
+<body>
+   <div class="header">
+      <div class="container">
+
+         <nav class="navbar navbar-default navbar-custom">
+            <a class="navbar-brand" href="#/">Space Systems Online</a>
+            <ul class="nav navbar-nav">
+               <li ng-class="{active: activeTab === 'home'}"><a ui-sref="home">Home</a></li>
+               <li ng-class="{active: activeTab === 'account'}"><a ui-sref="account">Account</a></li>
+               <li ng-class="{active: activeTab === 'simulator'}"><a ui-sref="simulator">Simulator</a></li>
+               <li ng-class="{active: activeTab === 'contact'}"><a ui-sref="contact">Contact</a></li>
+               <li ng-class="{active: activeTab === 'about'}"><a ui-sref="about">About</a></li>
+            </ul>
+            <ul class="nav navbar-nav pull-right">
+               <li><a href="/login" ng-class="{active: activeTab === 'login'}">Log in</a></li>
+               <li><a href="/register" ng-class="{active: activeTab === 'register'}">Sign up</a></li>
+            </ul>
+         </nav>
+
+         <div class="flash-message" ng-if="flash">
+            <div class="{{'alert alert-' + flash.type}}" ng-bind="flash.message"></div>
+         </div>
       </div>
-   </header>
+   </div>
 
    <main ui-view></main>
 
@@ -32,7 +47,8 @@
    <script src="app.js"></script>
    <script src="app-services/UserService.js"></script>
    <script src="app-services/FlashService.js"></script>
-   <script src="home/HomeController.js"></script>
+   <!-- <script src="home/HomeController.js"></script> -->
+   <script src="main/MainController.js"></script>
    <script src="account/AccountController.js"></script>
 </body>
 </html
