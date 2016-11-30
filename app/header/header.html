@@ -1,0 +1,23 @@
+   <div class="header">
+      <div class="container">
+
+         <nav class="navbar navbar-default navbar-custom">
+            <a class="navbar-brand" href="#/">Space Systems Online</a>
+            <ul class="nav navbar-nav">
+               <li ng-class="{active: activeTab === 'home'}"><a ui-sref="home">Home</a></li>
+               <li ng-class="{active: activeTab === 'simulator'}"><a ui-sref="simulator">Simulator</a></li>
+               <li ng-class="{active: activeTab === 'contact'}"><a ui-sref="contact">Contact</a></li>
+               <li ng-class="{active: activeTab === 'about'}"><a ui-sref="about">About</a></li>
+            </ul>
+            <ul class="nav navbar-nav pull-right">
+               <li ng-if="!vm.user"><a href="/login" ng-class="{active: activeTab === 'login'}">Log in</a></li>
+               <li ng-if="!vm.user"><a href="/register" ng-class="{active: activeTab === 'register'}">Sign up</a></li>
+               <li ng-if="vm.user" ng-class="{active: activeTab === 'account'}"><a ui-sref="account">Account</a></li>
+            </ul>
+         </nav>
+
+         <div class="flash-message" ng-if="flash">
+            <div class="{{'alert alert-' + flash.type}}" ng-bind="flash.message"></div>
+         </div>
+      </div>
+   </div>

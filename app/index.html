@@ -10,31 +10,10 @@
    <link href="app-content/css/simulator.css" rel="stylesheet"/>
 </head>
 <body>
-   <div class="header">
-      <div class="container">
 
-         <nav class="navbar navbar-default navbar-custom">
-            <a class="navbar-brand" href="#/">Space Systems Online</a>
-            <ul class="nav navbar-nav">
-               <li ng-class="{active: activeTab === 'home'}"><a ui-sref="home">Home</a></li>
-               <li ng-class="{active: activeTab === 'account'}"><a ui-sref="account">Account</a></li>
-               <li ng-class="{active: activeTab === 'simulator'}"><a ui-sref="simulator">Simulator</a></li>
-               <li ng-class="{active: activeTab === 'contact'}"><a ui-sref="contact">Contact</a></li>
-               <li ng-class="{active: activeTab === 'about'}"><a ui-sref="about">About</a></li>
-            </ul>
-            <ul class="nav navbar-nav pull-right">
-               <li><a href="/login" ng-class="{active: activeTab === 'login'}">Log in</a></li>
-               <li><a href="/register" ng-class="{active: activeTab === 'register'}">Sign up</a></li>
-            </ul>
-         </nav>
+   <div ui-view="header"></div>
 
-         <div class="flash-message" ng-if="flash">
-            <div class="{{'alert alert-' + flash.type}}" ng-bind="flash.message"></div>
-         </div>
-      </div>
-   </div>
-
-   <main ui-view></main>
+   <div ui-view="main"></div>
 
    <footer></footer>
 
@@ -50,5 +29,6 @@
    <!-- <script src="home/HomeController.js"></script> -->
    <script src="main/MainController.js"></script>
    <script src="account/AccountController.js"></script>
+   <script src="header/HeaderController.js"></script>
 </body>
 </html

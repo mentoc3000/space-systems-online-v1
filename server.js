@@ -47,7 +47,7 @@ var server = app.listen(app.get('port'),function(){
    var host = server.address().address;
    var port = server.address().port;
 
-   if (host === "::") host = '0.0.0.0';
+   if (host === "::") host = 'localhost';
 
    console.log('Server listening at http://' + host + ':' + port);
 });
