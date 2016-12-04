@@ -1,4 +1,3 @@
-var UserServiceMock = require('../mocks/UserServiceMock');
 var Q = require('q');
 
 describe('AccountController Tests', function() {
@@ -14,7 +13,7 @@ describe('AccountController Tests', function() {
       $controller = _$controller_;
       $window = _$window_;
       // UserService = _UserService_;
-      UserService = UserServiceMock;
+      UserService = _UserService_;
       FlashService = _FlashService_;
    }));
 
