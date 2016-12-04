@@ -1,9 +1,7 @@
-'use strict';
-
 var express = require('express');
 var router = express.Router();
 var request = require('request');
-var config = require('config.json');
+var config = require('../config.json');
 
 router.get('/', function(req, res) {
    res.render('register');
@@ -15,8 +13,8 @@ router.post('/', function(req, res) {
       url: config.apiUrl + '/users/register',
       form: req.body,
       json: true
-   }, function (error, response, body) {
-      if (error) {
+   }, function (err, response, body) {
+      if (err) {
          return res.render('register', {
             error: 'An error occurred'
          });

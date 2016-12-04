@@ -1,9 +1,7 @@
-'use strict';
-
 // var config = require('config.json');
 var express = require('express');
 var router = express.Router();
-var userService = require('services/UserService');
+var userService = require('../../services/UserService');
 
 // routes
 router.post('/authenticate', authenticateUser);

@@ -1,6 +1,4 @@
-'use strict';
-
-var config = require('config.json');
+var config = require('../config.json');
 var _ = require('lodash');
 var jwt = require('jsonwebtoken');
 var bcrypt = require('bcryptjs');
@@ -140,7 +138,7 @@ function update(_id, userParam) {
          });
    }
 
-      return deferred.promise;
+   return deferred.promise;
 }
 
 // prefix function name with underscore because 'delete' is a reserved word in javascript

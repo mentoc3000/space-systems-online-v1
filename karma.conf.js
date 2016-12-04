@@ -15,12 +15,18 @@ module.exports = function(config) {
 
       // list of files / patterns to load in the browser
       files: [
+         'bower_components/jquery/dist/jquery.js',
          'bower_components/angular/angular.js',
          'bower_components/angular-*/angular-*.js',
+         'bower_components/angular-ui-router/release/angular-ui-router.js',
          'bower_components/angular-mocks/angular-mocks.js',
-         'app/js/app.js',
-         'app/js/controllers/*.js',
-         'app/js/services/*.js',
+         // {pattern: 'config.json', included: false},
+         'app/app.js',
+         'app/app-services/*.js',
+         // 'controllers/**/*.js',
+         // 'services/**/*.js',
+         'app/**/*.js',
+         'spec/**/*Mock.js',
          'spec/**/*Spec.js'
       ],
 
@@ -28,6 +34,7 @@ module.exports = function(config) {
       // list of files to exclude
       exclude: [
          '**/.*.swp',
+         '**/.*.swo',
          '**/*~'
       ],
 
@@ -35,7 +42,10 @@ module.exports = function(config) {
       // preprocess matching files before serving them to the browser
       // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
       preprocessors: {
-         // 'spec/**/*Spec.js': ['browserify']
+         'spec/**/*Spec.js': ['browserify'],
+         'spec/**/*Mock.js': ['browserify'],
+         // 'controllers/**/*.js': ['browserify'],
+         // 'services/**/*.js': ['browserify']
       },
 
       browserify: {
@@ -74,7 +84,7 @@ module.exports = function(config) {
 
       // Continuous Integration mode
       // if true, Karma captures browsers, runs the tests and exits
-      singleRun: false,
+      singleRun: true,
 
       // Concurrency level
       // how many browser should be started simultaneous

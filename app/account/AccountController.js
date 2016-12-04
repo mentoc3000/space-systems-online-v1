@@ -1,5 +1,4 @@
 (function () {
-   'use strict';
 
    angular
       .module('SSOApp')
@@ -18,7 +17,8 @@
 
       function initController() {
          // get current user
-         UserService.GetCurrent().then(function(user) {
+         var current = UserService.GetCurrent();
+         current.then(function(user) {
             vm.user = user;
          });
       }
@@ -28,8 +28,8 @@
             .then(function(){
                FlashService.Success('User updated');
             })
-            .catch(function(error) {
-               FlashService.Error(error);
+            .catch(function(err) {
+               FlashService.Error(err);
             });
       }
 
@@ -39,8 +39,8 @@
                // log user out
                $window.location = '/login';
             })
-            .catch(function(error) {
-               FlashService.Error(error);
+            .catch(function(err) {
+               FlashService.Error(err);
             });
       }
    }
