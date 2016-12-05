@@ -33,20 +33,21 @@ describe('AccountController Tests', function() {
 
       beforeEach(function(done) {
 
-         var deferred = Q.defer();
-         deferred.resolve(user);
-         spyOn(UserService,'GetCurrent').and.returnValue(deferred.promise);
+         var promise = new Q.Promise(
+            function resolver(resolve, reject){
+               var deferred = Q.defer();
+               deferred.resolve(user);
+               spyOn(UserService,'GetCurrent').and.returnValue(deferred.promise);
 
-         controller = $controller('AccountController',{
-            $window: $window,
-            UserService: UserService,
-            FlashService: FlashService
-         });
+               controller = $controller('AccountController',{
+                  $window: $window,
+                  UserService: UserService,
+                  FlashService: FlashService
+               });
+            }
+         );
 
-         // I'M SURE THIS COULD BE DONE MORE ELEGANTLY
-         setTimeout(function(){
-            done();
-         }, 100);
+         promise.then(done);
       });
 
 
