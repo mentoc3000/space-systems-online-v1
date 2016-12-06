@@ -44,6 +44,8 @@ describe('AccountController Tests', function() {
                   UserService: UserService,
                   FlashService: FlashService
                });
+
+               resolve(controller);
             }
          );
 
@@ -66,30 +68,35 @@ describe('AccountController Tests', function() {
 
       beforeEach(function(done) {
 
-         var deferredInit = Q.defer();
-         deferredInit.resolve(user);
-         spyOn(UserService,'GetCurrent').and.returnValue(deferredInit.promise);
+         Q.Promise(function resolver(resolve, reject){
 
-         var deferred = Q.defer();
-         deferred.resolve();
-         spyOn(UserService,'Update').and.returnValue(deferred.promise);
+            var deferredInit = Q.defer();
+            deferredInit.resolve(user);
+            spyOn(UserService,'GetCurrent').and.returnValue(deferredInit.promise);
 
-         spyOn(FlashService,'Success');
-         spyOn(FlashService,'Error');
+            var deferred = Q.defer();
+            deferred.resolve();
+            spyOn(UserService,'Update').and.returnValue(deferred.promise);
 
-         controller = $controller('AccountController',{
-            $window: $window,
-            UserService: UserService,
-            FlashService: FlashService
-         });
+            spyOn(FlashService,'Success');
+            spyOn(FlashService,'Error');
 
-         // I'M SURE THIS COULD BE DONE MORE ELEGANTLY
-         setTimeout(function(){
-            controller.saveUser();
-            setTimeout(function(){
-               done();
-            },100);
-         }, 100);
+            controller = $controller('AccountController',{
+               $window: $window,
+               UserService: UserService,
+               FlashService: FlashService
+            });
+
+            resolve(controller);
+         })
+            .then(function(controller){
+               return Q.Promise(
+                  function resolver(resolve, reject) {
+                     resolve(controller.saveUser());
+                  }
+               );
+            })
+            .then(done);
       });
 
       it('Updates the user', function() {
