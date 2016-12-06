@@ -131,15 +131,13 @@ describe('AccountController Tests', function() {
             UserService: UserService,
             FlashService: FlashService
          });
+
          controller.saveUser();
 
          // I'M SURE THIS COULD BE DONE MORE ELEGANTLY
          setTimeout(function(){
-            controller.saveUser();
-            setTimeout(function(){
-               done();
-            },100);
-         }, 100);
+            done();
+         }, 10);
       });
 
       it('Tries to update the user', function() {
@@ -174,13 +172,12 @@ describe('AccountController Tests', function() {
             FlashService: FlashService
          });
 
+
          // I'M SURE THIS COULD BE DONE MORE ELEGANTLY
          setTimeout(function(){
             controller.deleteUser();
-            setTimeout(function(){
-               done();
-            },100);
-         }, 100);
+            done();
+         }, 10);
       });
 
       it('Deletes the user', function() {
@@ -224,8 +221,8 @@ describe('AccountController Tests', function() {
             controller.deleteUser();
             setTimeout(function(){
                done();
-            },100);
-         }, 100);
+            },10);
+         }, 10);
       });
 
       it('Tries to delete the user', function() {
