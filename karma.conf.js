@@ -26,7 +26,7 @@ module.exports = function(config) {
          // 'controllers/**/*.js',
          // 'services/**/*.js',
          'app/**/*.js',
-         'spec/**/*Spec.js'
+         'spec/client/**/*Spec.js'
       ],
 
 
@@ -41,7 +41,7 @@ module.exports = function(config) {
       // preprocess matching files before serving them to the browser
       // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
       preprocessors: {
-         'spec/**/*Spec.js': ['browserify'],
+         'spec/client/**/*Spec.js': ['browserify'],
          // 'controllers/**/*.js': ['browserify'],
          // 'services/**/*.js': ['browserify']
       },
