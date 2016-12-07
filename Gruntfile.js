@@ -4,6 +4,7 @@ module.exports = function(grunt) {
    [
       'grunt-karma',
       'grunt-contrib-jshint',
+      'grunt-contrib-jasmine',
       'grunt-exec'
    ].forEach(function(task){
       grunt.loadNpmTasks(task);
@@ -31,6 +32,10 @@ module.exports = function(grunt) {
             // browsers: ['PhantomJS']
          }
       },
+      jasmine: {
+         specs: 'spec/server/**/*Spec.js',
+         helpers: 'spec/helpers/**/*.js'
+      },
       exec: {
          linkchecker: {
             cmd: 'linkchecker http://localhost:3000'
@@ -43,7 +48,9 @@ module.exports = function(grunt) {
    grunt.registerTask('default',[
       'jshint',
       'karma',
-      'exec']);
+      'jasmine',
+      'exec'
+   ]);
 
 
 };
