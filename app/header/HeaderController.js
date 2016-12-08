@@ -4,9 +4,9 @@
       .module('SSOApp')
       .controller('HeaderController', Controller);
 
-   Controller.$inject = ['UserService'];
+   Controller.$inject = ['UserService','$window'];
 
-   function Controller(UserService) {
+   function Controller(UserService, $window) {
       var vm = this;
 
       vm.user = null;
@@ -14,10 +14,13 @@
       initController();
 
       function initController() {
-         // get current user
-         UserService.GetCurrent().then(function(user) {
-            vm.user = user;
-         });
+         // if a token exists
+         if ($window.jwtToken){
+            // get current user
+            UserService.GetCurrent().then(function(user) {
+               vm.user = user;
+            });
+         }
       }
    }
 })();
