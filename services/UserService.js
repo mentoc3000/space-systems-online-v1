@@ -74,6 +74,7 @@ function create(userParam) {
    function createUser() {
       // set user object to userParam without the cleartext password
       var user = _.omit(userParam, 'password');
+      console.log('creating user');
 
       // add hashed password to user object
       user.hash = bcrypt.hashSync(userParam.password, 10);
@@ -81,9 +82,11 @@ function create(userParam) {
       db.users.insert(
          user,
          function (err, doc) {
+            console.log('inserted');
             if (err) deferred.reject(err);
 
             deferred.resolve();
+            console.log(JSON.stringify(deferred.promise));
          });
    }
    return deferred.promise;

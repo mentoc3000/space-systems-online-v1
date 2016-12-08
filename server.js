@@ -42,10 +42,13 @@ app.get('/', function(req, res){
 });
 
 var server = app.listen(app.get('port'),function(){
-   var host = server.address().address;
+   // var host = server.address().address;
+   var host = "::";
    var port = server.address().port;
 
    if (host === "::") host = 'localhost';
 
    console.log('Server listening at http://' + host + ':' + port);
 });
+
+// module.exports = server;
