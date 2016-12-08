@@ -33,12 +33,12 @@ app.use('/api',
 // routes
 app.use('/login', require('./controllers/LogInController'));
 app.use('/register', require('./controllers/RegisterController'));
-app.use('/app', require('./controllers/AppController'));
+app.use('/main', require('./controllers/AppController'));
 app.use('/api/users', require('./controllers/api/UsersController'));
 
 // make '/app' the default route
 app.get('/', function(req, res){
-   return res.redirect("/app");
+   return res.redirect("/main");
 });
 
 var server = app.listen(app.get('port'),function(){
