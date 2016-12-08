@@ -6,7 +6,7 @@
       .run(run);
 
    //Routing
-   function config($stateProvider, $urlRouterProvider){
+   function config($stateProvider, $urlRouterProvider, $locationProvider){
       // default route
       $urlRouterProvider.otherwise('/');
 
@@ -96,6 +96,10 @@
             },
             data: { activeTab: 'contact' }
          });
+
+      // use the HTML5 History API
+      $locationProvider.html5Mode(true).hashPrefix('!');
+
    }
 
    function run($http, $rootScope, $window) {
