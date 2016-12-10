@@ -10,21 +10,27 @@
       // default route
       $urlRouterProvider.otherwise('/');
 
+      var header = {
+         templateUrl: 'header/header.html',
+         controller: 'HeaderController',
+         controllerAs: 'vm'
+      };
+
+      function mainView(templateUrl) {
+         return {
+            templateUrl: templateUrl,
+            controller: 'MainController',
+            controllerAs: 'vm',
+         };
+      }
+
       $stateProvider
 
          .state('home', {
             url:'/',
             views: {
-               "header": {
-                  templateUrl: 'header/header.html',
-                  controller: 'HeaderController',
-                  controllerAs: 'vm'
-               },
-               "main": {
-                  templateUrl: 'main/home.html',
-                  controller: 'MainController',
-                  controllerAs: 'vm',
-               }
+               "header": header,
+               "main": mainView('main/home.html')
             },
             data: { activeTab: 'home'}
          })
@@ -32,16 +38,8 @@
          .state('account', {
             url: '/account',
             views: {
-               "header": {
-                  templateUrl: 'header/header.html',
-                  controller: 'HeaderController',
-                  controllerAs: 'vm'
-               },
-               "main": {
-                  templateUrl: 'account/account.html',
-                  controller: 'AccountController',
-                  controllerAs: 'vm',
-               }
+               "header": header,
+               "main": mainView('account/account.html')
             },
             data: { activeTab: 'account' }
          })
@@ -49,16 +47,8 @@
          .state('simulator', {
             url: '/simulator',
             views: {
-               "header": {
-                  templateUrl: 'header/header.html',
-                  controller: 'HeaderController',
-                  controllerAs: 'vm'
-               },
-               "main": {
-                  templateUrl: 'simulator/script.html',
-                  controller: 'MainController',
-                  controllerAs: 'vm',
-               }
+               "header": header,
+               "main": mainView('simulator/script.html')
             },
             data: { activeTab: 'simulator' }
          })
@@ -66,16 +56,8 @@
          .state('about', {
             url: '/about',
             views: {
-               "header": {
-                  templateUrl: 'header/header.html',
-                  controller: 'HeaderController',
-                  controllerAs: 'vm'
-               },
-               "main": {
-                  templateUrl: 'main/about.html',
-                  controller: 'MainController',
-                  controllerAs: 'vm',
-               }
+               "header": header,
+               "main": mainView('main/about.html')
             },
             data: { activeTab: 'about' }
          })
@@ -83,16 +65,8 @@
          .state('contact', {
             url: '/contact',
             views: {
-               "header": {
-                  templateUrl: 'header/header.html',
-                  controller: 'HeaderController',
-                  controllerAs: 'vm'
-               },
-               "main": {
-                  templateUrl: 'main/contact.html',
-                  controller: 'MainController',
-                  controllerAs: 'vm',
-               }
+               "header": header,
+               "main": mainView('main/contact.html')
             },
             data: { activeTab: 'contact' }
          });
