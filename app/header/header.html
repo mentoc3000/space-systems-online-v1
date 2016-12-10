@@ -29,8 +29,11 @@
 
          </div>
       </nav>
-      <div class="flash-message" ng-if="flash">
-         <div class="{{'alert alert-' + flash.type}}" ng-bind="flash.message"></div>
-      </div>
+   </div>
+</div>
+
+<div class="flash-message" ng-if="flash">
+   <div class="container">
+      <div class="{{'alert alert-' + flash.type}}" ng-bind="flash.message"></div>
    </div>
 </div>
