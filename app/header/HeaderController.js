@@ -10,6 +10,7 @@
       var vm = this;
 
       vm.user = null;
+      vm.logOut = logOut;
 
       initController();
 
@@ -19,8 +20,13 @@
             // get current user
             UserService.GetCurrent().then(function(user) {
                vm.user = user;
+               vm.user.admin = true; // must be replaced with something more secure.
             });
          }
+      }
+
+      function logOut() {
+         vm.user = null;
       }
    }
 })();

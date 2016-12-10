@@ -40,6 +40,36 @@
             data: { activeTab: 'home'}
          })
 
+         .state('simulator', {
+            url: '/simulator',
+            views: {
+               "header": header,
+               "main": mainView('simulator/script.html'),
+               "footer": footer
+            },
+            data: { activeTab: 'simulator' }
+         })
+
+         .state('contact', {
+            url: '/contact',
+            views: {
+               "header": header,
+               "main": mainView('main/contact.html'),
+               "footer": footer
+            },
+            data: { activeTab: 'contact' }
+         })
+
+         .state('about', {
+            url: '/about',
+            views: {
+               "header": header,
+               "main": mainView('main/about.html'),
+               "footer": footer
+            },
+            data: { activeTab: 'about' }
+         })
+
          .state('account', {
             url: '/account',
             views: {
@@ -54,36 +84,19 @@
             data: { activeTab: 'account' }
          })
 
-         .state('simulator', {
-            url: '/simulator',
+         .state('admin', {
+            url: '/admin',
             views: {
                "header": header,
-               "main": mainView('simulator/script.html'),
+               "main": {
+                  templateUrl: 'admin/admin.html',
+                  controller: 'AdminController',
+                  controllerAs: 'vm'
+               },
                "footer": footer
             },
-            data: { activeTab: 'simulator' }
-         })
-
-         .state('about', {
-            url: '/about',
-            views: {
-               "header": header,
-               "main": mainView('main/about.html'),
-               "footer": footer
-            },
-            data: { activeTab: 'about' }
-         })
-
-         .state('contact', {
-            url: '/contact',
-            views: {
-               "header": header,
-               "main": mainView('main/contact.html'),
-               "footer": footer
-            },
-            data: { activeTab: 'contact' }
+            data: { activeTab: 'admin' }
          });
-
       // use the HTML5 History API
       $locationProvider.html5Mode(true).hashPrefix('!');
 

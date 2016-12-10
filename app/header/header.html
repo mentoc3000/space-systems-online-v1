@@ -22,7 +22,8 @@
                   <a id="drop1" href="#" class="dropdown-toggle" data-toggle="dropdown">Hi, {{vm.user.firstName}}<span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
                      <li><a ui-sref="account">Account</a></li>
-                     <li><a href="#">Logout</a></li>
+                     <li ng-if="vm.user.admin"><a ui-sref="admin">Administration</a></li>
+                     <li><a ng-click="vm.logOut()">Logout</a></li>
                   </ul>
                </li>
             </ul>
