@@ -24,13 +24,18 @@
          };
       }
 
+      var footer = {
+         templateUrl: 'main/footer.html'
+      };
+
       $stateProvider
 
          .state('home', {
             url:'/',
             views: {
                "header": header,
-               "main": mainView('main/home.html')
+               "main": mainView('main/home.html'),
+               "footer": footer
             },
             data: { activeTab: 'home'}
          })
@@ -39,7 +44,8 @@
             url: '/account',
             views: {
                "header": header,
-               "main": mainView('account/account.html')
+               "main": mainView('account/account.html'),
+               "footer": footer
             },
             data: { activeTab: 'account' }
          })
@@ -48,7 +54,8 @@
             url: '/simulator',
             views: {
                "header": header,
-               "main": mainView('simulator/script.html')
+               "main": mainView('simulator/script.html'),
+               "footer": footer
             },
             data: { activeTab: 'simulator' }
          })
@@ -57,7 +64,8 @@
             url: '/about',
             views: {
                "header": header,
-               "main": mainView('main/about.html')
+               "main": mainView('main/about.html'),
+               "footer": footer
             },
             data: { activeTab: 'about' }
          })
@@ -66,7 +74,8 @@
             url: '/contact',
             views: {
                "header": header,
-               "main": mainView('main/contact.html')
+               "main": mainView('main/contact.html'),
+               "footer": footer
             },
             data: { activeTab: 'contact' }
          });
