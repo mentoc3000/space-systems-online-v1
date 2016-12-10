@@ -47,7 +47,7 @@
                "main": {
                   templateUrl: 'account/account.html',
                   controller: 'AccountController',
-                  controlerAs: 'vm'
+                  controllerAs: 'vm'
                },
                "footer": footer
             },
