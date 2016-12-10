@@ -44,7 +44,11 @@
             url: '/account',
             views: {
                "header": header,
-               "main": mainView('account/account.html'),
+               "main": {
+                  templateUrl: 'account/account.html',
+                  controller: 'AccountController',
+                  controlerAs: 'vm'
+               },
                "footer": footer
             },
             data: { activeTab: 'account' }

@@ -29,15 +29,17 @@ html, body, ng-view {
    color: white;
 }
 
-/*
-.header .navbar-custom .nav li > a:hover {
-   color: grey;
+.header a:hover {
+   color: grey!important;
 }
 
-.header .navbar-custon .nav .active {
-   color:grey;
+.header li.active > a{
+   color: grey!important;
 }
-*/
+
+.header .dropdown-menu {
+   background-color:red;
+}
 
 .header .navbar-custom .navbar-brand {
    color:white;
