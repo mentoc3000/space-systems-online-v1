@@ -10,5 +10,17 @@
 
       var vm = this;
 
+      vm.users = [];
+
+      initController();
+
+      function initController() {
+
+         UserService.GetAll().then(function(users){
+            vm.users = users;
+         });
+      }
+
+
    }
 })();
