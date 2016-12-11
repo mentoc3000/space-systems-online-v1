@@ -32,6 +32,7 @@ app.use('/api',
 
 // routes
 app.use('/login', require('./controllers/LogInController'));
+app.use('/logout', require('./controllers/LogOutController'));
 app.use('/register', require('./controllers/RegisterController'));
 app.use('/main', require('./controllers/AppController'));
 app.use('/api/users', require('./controllers/api/UsersController'));
