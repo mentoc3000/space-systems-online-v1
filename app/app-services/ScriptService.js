@@ -17,23 +17,21 @@
       // http routines
 
       function Submit(input) {
-         console.log(input);
-         return $http.post('/api/sim/submit',input)
-         .then(handleSuccess, handleError);
+         var body = {
+            input: input
+         };
+         return $http.post('/api/sim/submit',body)
+         .then(handleSuccess,handleError);
       }
 
 
       // private functions
       
       function handleSuccess(res) {
-         console.log('success');
-         console.log(res.data);
          return res.data;
       }
 
       function handleError(res) {
-         console.log('failure');
-         console.log(res.data);
          return $q.reject(res.data);
       }
    }

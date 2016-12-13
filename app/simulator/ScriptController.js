@@ -19,7 +19,6 @@
       }
 
       function submit() {
-         console.log(vm.input);
          ScriptService.Submit(vm.input)
          .then(function(output) {
             vm.output = output;
