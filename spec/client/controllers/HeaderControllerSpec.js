@@ -1,7 +1,7 @@
 var Q = require('q');
 
 describe('HeaderController Tests', function(){ 
-   
+
    beforeEach(angular.mock.module('SSOApp'));
 
    var $controller, UserService;
@@ -21,32 +21,74 @@ describe('HeaderController Tests', function(){
    };
 
    describe('Initialization', function(){
-      
-      beforeEach(function(done){
-         var promise = new Q.Promise(
-            function resolver(resolve, reject){
-               var deferred = Q.defer();
-               deferred.resolve(user);
-               spyOn(UserService,'GetCurrent').and.returnValue(deferred.promise);
 
-               controller = $controller('HeaderController', {
-                  UserService: UserService
-               });
+      describe('When logged in',function(){
+         var $window = {
+            jwtToken: 'sometoken'
+         };
 
-               resolve(controller);
-            }
-         );
+         beforeEach(function(done){
+            var promise = new Q.Promise(
+               function resolver(resolve, reject){
+                  var deferred = Q.defer();
+                  deferred.resolve(user);
+                  spyOn(UserService,'GetCurrent').and.returnValue(deferred.promise);
 
-         promise.then(done);
+                  controller = $controller('HeaderController', {
+                     UserService: UserService,
+                     $window: $window
+                  });
+
+                  resolve(controller);
+               }
+            );
+
+            promise.then(done);
+         });
+
+         it('Gets the current user', function(){
+            expect(UserService.GetCurrent).toHaveBeenCalled();
+         });
+
+         it('Stores user', function() {
+            expect(controller.user).toEqual(user);
+         });
       });
 
-      it('Gets the current user', function(){
-         expect(UserService.GetCurrent).toHaveBeenCalled();
+      describe('When not logged in',function(){
+         var $window = {
+            jwtToken: ''
+         };
+
+         beforeEach(function(done){
+            var promise = new Q.Promise(
+               function resolver(resolve, reject){
+                  var deferred = Q.defer();
+                  deferred.resolve();
+                  spyOn(UserService,'GetCurrent').and.returnValue(deferred.promise);
+
+                  controller = $controller('HeaderController', {
+                     UserService: UserService,
+                     $window: $window
+                  });
+
+                  resolve(controller);
+               }
+            );
+
+            promise.then(done);
+         });
+
+         it('Gets the current user', function(){
+            expect(UserService.GetCurrent).not.toHaveBeenCalled();
+         });
+
+         it('Stores user', function() {
+            expect(controller.user).toBe(null);
+         });
       });
 
-      it('Stores user', function() {
-         expect(controller.user).toEqual(user);
-      });
 
    });
+
 });

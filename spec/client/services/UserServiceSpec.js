@@ -23,6 +23,7 @@ describe('UserService tests', function() {
 
       $httpBackend.when('GET','header/header.html').respond(200);
       $httpBackend.when('GET','main/home.html').respond(200);
+      $httpBackend.when('GET','main/footer.html').respond(200);
    }));
 
    afterEach(function(){
