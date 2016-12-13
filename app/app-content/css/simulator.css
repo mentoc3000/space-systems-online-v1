@@ -18,10 +18,10 @@
    overflow-y:auto;
 }
 
-.script input[type="submit"] {
-   position:fixed;
-   bottom:5px;
-   right:55%;
+.script button {
+   position:fixed!important;
+   bottom:5px!important;
+   right:55%!important;
 }
 
 .output-holder {

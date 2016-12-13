@@ -18,6 +18,7 @@ app.use(session({
 }));
 
 // use JWT auth to secure the api
+/*
 app.use('/api',
    expressJwt({
       secret: config.secret
@@ -25,10 +26,12 @@ app.use('/api',
    .unless({
       path: [
          '/api/users/authenticate',
-         '/api/users/register'
+         '/api/users/register',
+         '/api/sim'
       ]
    })
 );
+*/
 
 // routes
 app.use('/login', require('./controllers/LogInController'));
@@ -36,6 +39,7 @@ app.use('/logout', require('./controllers/LogOutController'));
 app.use('/register', require('./controllers/RegisterController'));
 app.use('/main', require('./controllers/AppController'));
 app.use('/api/users', require('./controllers/api/UsersController'));
+app.use('/api/sim', require('./controllers/api/SimulationController'));
 
 // make '/app' the default route
 app.get('/', function(req, res){

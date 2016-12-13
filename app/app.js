@@ -28,6 +28,10 @@
          templateUrl: 'main/footer.html'
       };
 
+      var none = {
+         template: ''
+      };
+
       $stateProvider
 
          .state('home', {
@@ -44,8 +48,12 @@
             url: '/simulator',
             views: {
                "header": header,
-               "main": mainView('simulator/script.html'),
-               "footer": footer
+               "main": {
+                  templateUrl: 'simulator/script.html',
+                  controller: 'ScriptController',
+                  controllerAs: 'vm'
+               },
+               "footer": none
             },
             data: { activeTab: 'simulator' }
          })
