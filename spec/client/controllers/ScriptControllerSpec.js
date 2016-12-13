@@ -13,7 +13,7 @@ describe('ScriptController Tests', function() {
 
    var controller;
 
-   var input = 'input text';
+   var data = 'input text';
 
    describe('Initialization', function() {
 
@@ -31,4 +31,34 @@ describe('ScriptController Tests', function() {
          expect(controller.output).toEqual('');
       });
    });
+
+
+   describe('Submitting', function() {
+
+      beforeEach(function(done) {
+         var promise = new Q.Promise(
+            function resolver(resolve, reject){
+               var deferred = Q.defer();
+               deferred.resolve(data);
+               spyOn(ScriptService,'Submit').and.returnValue(deferred.promise);
+               controller = $controller('ScriptController', {
+                  ScriptService: ScriptService
+               });
+               controller.input = data;
+               controller.submit();
+               resolve(controller);
+            }
+         );
+         promise.then(done);
+      });
+
+      it('Submits the data', function() {
+         expect(ScriptService.Submit).toHaveBeenCalledWith(data);
+      });
+
+      it('Returns the data', function() {
+         expect(controller.output).toEqual(data);
+      });
+   });
+
 });
