@@ -20,13 +20,10 @@ module.exports = function(config) {
          'bower_components/angular-*/angular-*.js',
          'bower_components/angular-ui-router/release/angular-ui-router.js',
          'bower_components/angular-mocks/angular-mocks.js',
-         // {pattern: 'config.json', included: false},
          'app/app.js',
          'app/app-services/*.js',
-         // 'controllers/**/*.js',
-         // 'services/**/*.js',
          'app/**/*.js',
-         'spec/client/**/*Spec.js'
+         'spec/**/*Spec.js'
       ],
 
 
@@ -41,9 +38,7 @@ module.exports = function(config) {
       // preprocess matching files before serving them to the browser
       // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
       preprocessors: {
-         'spec/client/**/*Spec.js': ['browserify'],
-         // 'controllers/**/*.js': ['browserify'],
-         // 'services/**/*.js': ['browserify']
+         'spec/**/*Spec.js': ['browserify'],
       },
 
       browserify: {
