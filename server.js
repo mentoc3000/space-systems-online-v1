@@ -44,6 +44,11 @@ app.get('/', function(req, res){
    return res.redirect("/main");
 });
 
+app.all('/*', function(req,res,next) {
+   // Just send the index.html for other files to support HTML5Mode
+   res.sendFile('app/index.html', { root: __dirname });
+});
+
 var server = app.listen(app.get('port'),function(){
    // var host = server.address().address;
    var host = "::";
