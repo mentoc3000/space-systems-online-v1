@@ -1,4 +1,4 @@
-var UserService = require('../../../services/UserService.js');
+var UserService = require('../../services/UserService.js');
 var _ = require('lodash');
 
 describe('UserService tests', function() {

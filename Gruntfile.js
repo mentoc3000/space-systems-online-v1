@@ -4,6 +4,7 @@ module.exports = function(grunt) {
    [
       'grunt-karma',
       'grunt-contrib-jshint',
+      'grunt-mocha-test',
       'grunt-exec'
    ].forEach(function(task){
       grunt.loadNpmTasks(task);
@@ -14,14 +15,14 @@ module.exports = function(grunt) {
    grunt.initConfig({
       // grunt-contrib-concat here
       jshint: {
-         app: [
+         all: [
             'server.js',
-            'app/js/**/*.js'
-         ],
-         qa: [
-            'Gruntfile.js',
-            'tests/**/*.js',
-            'app/tests/**/*.js'
+            'app/**/*.js',
+            'controllers/**/*.js',
+            'services/**/*.js',
+            'spec/**/*.js',
+            'test/**/*.js',
+            'lib/*.js'
          ]
       },
       karma: {
@@ -31,10 +32,18 @@ module.exports = function(grunt) {
             // browsers: ['PhantomJS']
          }
       },
+      mochaTest: {
+         test: {
+            options: {
+               reporter: 'spec',
+               noFail: false
+            },
+            src: [
+               'test/**/*Test.js'
+            ]
+         }
+      },
       exec: {
-         jasmine: {
-            cmd: 'jasmine'
-         },
          // linkchecker: {
          //    cmd: 'linkchecker http://localhost:3000'
          // }
@@ -46,7 +55,8 @@ module.exports = function(grunt) {
    grunt.registerTask('default',[
       'jshint',
       'karma',
-      'exec'
+      'mochaTest',
+      // 'exec'
    ]);
 
 
