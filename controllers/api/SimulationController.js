@@ -8,7 +8,7 @@ router.post('/submit', submit);
 module.exports = router;
 
 function submit(req, res) {
-   simService.reverse(req.body.input)
+   simService.runScript(req.body.input)
       .then(function(output){
          if (output) {
             res.send(output);
