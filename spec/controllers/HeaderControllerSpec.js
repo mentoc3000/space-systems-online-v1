@@ -1,3 +1,5 @@
+'use strict';
+
 var Q = require('q');
 
 describe('HeaderController Tests', function(){ 

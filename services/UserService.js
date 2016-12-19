@@ -1,3 +1,5 @@
+'use strict';
+
 var config = require('../config.json');
 var _ = require('lodash');
 var jwt = require('jsonwebtoken');

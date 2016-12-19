@@ -1,3 +1,5 @@
+'use strict';
+
 require('rootpath')();
 var express = require("express");
 var session = require('express-session');

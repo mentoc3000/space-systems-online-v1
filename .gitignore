@@ -7,3 +7,4 @@ _SpecRunner.html
 .grunt
 lib/gmat-dist
 lib/gmat
+lib/scripts

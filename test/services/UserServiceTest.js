@@ -1,3 +1,5 @@
+'use strict';
+
 var UserService = require('../../services/UserService.js');
 var _ = require('lodash');
 

@@ -1,3 +1,5 @@
+'use strict';
+
 describe('ScriptService Tests', function() {
 
    beforeEach(angular.mock.module('SSOApp'));

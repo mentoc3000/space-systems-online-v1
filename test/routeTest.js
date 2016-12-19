@@ -1,3 +1,5 @@
+'use strict';
+
 /*
 var request = require('supertest');
 // var really_need = require('really-need'); // jshint ignore:line

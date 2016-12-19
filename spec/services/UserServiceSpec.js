@@ -1,3 +1,5 @@
+'use strict';
+
 describe('UserService tests', function() {
    
    beforeEach(angular.mock.module('SSOApp'));

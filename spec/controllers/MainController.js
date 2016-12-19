@@ -1,3 +1,5 @@
+'use strict';
+
 var Q = require('q');
 var Promise = Q.Promise;
 

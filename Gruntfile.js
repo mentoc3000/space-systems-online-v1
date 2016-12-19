@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = function(grunt) {
 
    // load plugins
@@ -15,6 +17,9 @@ module.exports = function(grunt) {
    grunt.initConfig({
       // grunt-contrib-concat here
       jshint: {
+         options: {
+            jshintrc: true
+         },
          all: [
             'server.js',
             'app/**/*.js',
