@@ -3,8 +3,7 @@
 var UserService = require('../../services/UserService.js');
 var _ = require('lodash');
 
-describe('UserService tests', function() {
-   /*
+describe.skip('UserService tests', function() {
    var user = {
       _id: 0,
       username: 'username',
@@ -74,6 +73,5 @@ describe('UserService tests', function() {
          done();
       });
    });
-   */
 
 });
