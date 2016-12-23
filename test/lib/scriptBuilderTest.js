@@ -250,7 +250,23 @@ describe('Script Builder Tests', function() {
    describe.skip('penUpPenDown',function() {
    });
 
-   describe.skip('propagate',function() {
+   describe('propagate',function() {
+      var propagateData = {
+         propagatorName: 'propagatorName',
+         spacecraftName: 'satellite',
+         stopCondition: [
+            'sat.TA = 90',
+            'sat.Apoapsis'
+         ]
+      };
+      var output = scriptBuilder.propagate(propagateData);
+
+      it('builds script line', function() {
+         var expected = 'Propagate ' + propagateData.propagatorName +
+            '(' + propagateData.spacecraftName + ') ' +
+            '{' + propagateData.stopCondition.join(', ') + '};';
+         expect(output).to.equal(expected);
+      });
    });
 
    describe.skip('report',function() {
