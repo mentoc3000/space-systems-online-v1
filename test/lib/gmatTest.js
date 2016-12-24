@@ -11,7 +11,9 @@ describe('GMAT module tests',function() {
    describe('runScript',function() {
 
       var scripts = [
-         'Ex_HohmannTransfer'
+         'Ex_HohmannTransfer',
+         'Ex_MarsBPlane',
+         'Ex_GEOTransfer'
       ];
 
       scripts.forEach(testScript);

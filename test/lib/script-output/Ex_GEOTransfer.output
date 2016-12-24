@@ -1,0 +1,311 @@
+
+********************************************
+***  GMAT Console Application
+********************************************
+
+General Mission Analysis Tool
+Console Based Version
+Build Date: Oct  6 2016  09:50:38
+
+
+GMAT working directory set to '/home/mentoc3000/sso/lib/gmat-dist/R2016a/bin/'
+Moderator is updating data files...
+Moderator is creating core engine...
+
+libmx.so: cannot open shared object file: No such file or directory
+*** Library "../plugins/libMatlabInterface" did not open.
+
+../plugins/proprietary/libMarsGRAM.so: cannot open shared object file: No such file or directory
+*** Library "../plugins/proprietary/libMarsGRAM" did not open.
+
+../plugins/proprietary/libMsise86.so: cannot open shared object file: No such file or directory
+*** Library "../plugins/proprietary/libMsise86" did not open.
+
+../plugins/proprietary/libNRLMsise00.so: cannot open shared object file: No such file or directory
+*** Library "../plugins/proprietary/libNRLMsise00" did not open.
+
+../plugins/proprietary/libSNOptimizer.so: cannot open shared object file: No such file or directory
+*** Library "../plugins/proprietary/libSNOptimizer" did not open.
+
+../plugins/proprietary/libVF13Optimizer.so: cannot open shared object file: No such file or directory
+*** Library "../plugins/proprietary/libVF13Optimizer" did not open.
+For body Sun, not using potential file, so using default mu (132712440017.990005493164062500)
+Successfully set Planetary Source to use: DE405
+Successfully set Planetary Source to use: DE405
+Successfully set Planetary Source to use: DE405
+Setting nutation file to ../data/planetary_coeff/NUTATION.DAT
+Setting leap seconds file to ../data/time/tai-utc.dat
+2016-12-24 00:21:02 GMAT Moderator successfully created core engine
+
+Interpreting scripts from the file.
+***** file: /home/mentoc3000/sso/lib/gmat-dist/R2016a/samples/Ex_GEOTransfer.script
+Successfully set Planetary Source to use: DE405
+Successfully set Planetary Source to use: DE405
+For body Earth, not using potential file, so using default mu (398600.441500000015366822)
+For body Earth, not using potential file, so using default eq. radius (6378.136300000000119326)
+Successfully interpreted the script
+.................... Print out the whole sequence ........................................
+   Command::NoOp
+   Command::BeginMissionSequence
+   Command::Propagate
+   Command::Target
+   ... branch 0::Vary
+   ... branch 0::Maneuver
+   ... branch 0::Propagate
+   ... branch 0::Achieve
+   ... branch 0::EndTarget
+   Command::Propagate
+   Command::Propagate
+   Command::Target
+   ... branch 0::Vary
+   ... branch 0::Vary
+   ... branch 0::Maneuver
+   ... branch 0::Propagate
+   ... branch 0::Achieve
+   ... branch 0::Achieve
+   ... branch 0::EndTarget
+   Command::Target
+   ... branch 0::Vary
+   ... branch 0::Maneuver
+   ... branch 0::Achieve
+   ... branch 0::EndTarget
+   Command::Propagate
+.................... End sequence ........................................................
+Running mission...
+Successfully set Planetary Source to use: DE405
+Successfully set Planetary Source to use: DE405
+Kernel ../data/planetary_ephem/spk/DE405AllPlanets.bsp has been loaded.
+Kernel ../data/planetary_coeff/SPICEPlanetaryConstantsKernel.tpc has been loaded.
+Kernel ../data/time/SPICELeapSecondKernel.tls has been loaded.
+Kernel ../data/planetary_coeff/earth_070425_370426_predict.bpc has been loaded.
+Kernel ../data/planetary_coeff/earth_720101_070426.bpc has been loaded.
+Kernel ../data/planetary_coeff/earth_latest_high_prec.bpc has been loaded.
+Kernel ../data/planetary_coeff/moon_pa_de421_1900-2050.bpc has been loaded.
+Kernel ../data/planetary_coeff/moon_080317.tf has been loaded.
+For body Earth, not using potential file, so using default mu (398600.441500000015366822)
+For body Earth, not using potential file, so using default eq. radius (6378.136300000000119326)
+For body Sun, not using potential file, so using default eq. radius (695990.000000000000000000)
+********************************************************
+*** Performing Differential Correction (using "DC")
+*** 1 variables; 1 goals
+   Variables:  TOI.Element1
+   Goals:  geoSat.RMAG
+   SolverMode:  Solve
+********************************************************
+DC Iteration 1; Nominal Pass
+   Variables:  TOI.Element1 = 1
+   Goals and achieved values:
+      geoSat.RMAG  Desired: 85000  Achieved: 11538.5153043  Variance: 73461.4846957
+
+   Completed iteration 1, pert 1 (TOI.Element1 = 1.0001)
+
+DC Iteration 2; Nominal Pass
+   Variables:  TOI.Element1 = 1.5
+   Goals and achieved values:
+      geoSat.RMAG  Desired: 85000  Achieved: 16224.5280315  Variance: 68775.4719685
+
+   Completed iteration 2, pert 1 (TOI.Element1 = 1.5001)
+
+DC Iteration 3; Nominal Pass
+   Variables:  TOI.Element1 = 2
+   Goals and achieved values:
+      geoSat.RMAG  Desired: 85000  Achieved: 24787.2044891  Variance: 60212.7955109
+
+   Completed iteration 3, pert 1 (TOI.Element1 = 2.0001)
+
+DC Iteration 4; Nominal Pass
+   Variables:  TOI.Element1 = 2.5
+   Goals and achieved values:
+      geoSat.RMAG  Desired: 85000  Achieved: 45288.0637504  Variance: 39711.9362496
+
+   Completed iteration 4, pert 1 (TOI.Element1 = 2.5001)
+
+DC Iteration 5; Nominal Pass
+   Variables:  TOI.Element1 = 3
+   Goals and achieved values:
+      geoSat.RMAG  Desired: 85000  Achieved: 158769.444737  Variance: -73769.4447374
+
+   Completed iteration 5, pert 1 (TOI.Element1 = 3.0001)
+
+DC Iteration 6; Nominal Pass
+   Variables:  TOI.Element1 = 2.90046474779
+   Goals and achieved values:
+      geoSat.RMAG  Desired: 85000  Achieved: 107938.218078  Variance: -22938.218078
+
+   Completed iteration 6, pert 1 (TOI.Element1 = 2.90056474779)
+
+DC Iteration 7; Nominal Pass
+   Variables:  TOI.Element1 = 2.83532757683
+   Goals and achieved values:
+      geoSat.RMAG  Desired: 85000  Achieved: 88881.6535993  Variance: -3881.65359928
+
+   Completed iteration 7, pert 1 (TOI.Element1 = 2.83542757683)
+
+DC Iteration 8; Nominal Pass
+   Variables:  TOI.Element1 = 2.81936615911
+   Goals and achieved values:
+      geoSat.RMAG  Desired: 85000  Achieved: 85155.3094536  Variance: -155.309453584
+
+   Completed iteration 8, pert 1 (TOI.Element1 = 2.81946615911)
+
+DC Iteration 9; Nominal Pass
+   Variables:  TOI.Element1 = 2.8186735324
+   Goals and achieved values:
+      geoSat.RMAG  Desired: 85000  Achieved: 85000.3061367  Variance: -0.306136745814
+
+   Completed iteration 9, pert 1 (TOI.Element1 = 2.8187735324)
+
+DC Iteration 10; Nominal Pass
+   Variables:  TOI.Element1 = 2.81867216242
+   Goals and achieved values:
+      geoSat.RMAG  Desired: 85000  Achieved: 85000.0000898  Variance: -8.98013386177e-05
+
+
+*** Targeting Completed in 10 iterations.
+*** The Targeter converged!
+Final Variable values:
+   TOI.Element1 = 2.81867216242
+
+********************************************************
+*** Performing Differential Correction (using "DC")
+*** 2 variables; 2 goals
+   Variables:  MCC.Element1, MCC.Element2
+   Goals:  geoSat.EarthMJ2000Eq.INC, geoSat.RMAG
+   SolverMode:  Solve
+********************************************************
+DC Iteration 1; Nominal Pass
+   Variables:  MCC.Element1 = 0.1, MCC.Element2 = 0.1
+   Goals and achieved values:
+      geoSat.EarthMJ2000Eq.INC  Desired: 2  Achieved: 22.3226227874  Variance: -20.3226227874
+      geoSat.RMAG  Desired: 42195  Achieved: 8538.13325075  Variance: 33656.8667493
+
+   Completed iteration 1, pert 1 (MCC.Element1 = 0.1001)
+   Completed iteration 1, pert 2 (MCC.Element2 = 0.1001)
+
+DC Iteration 2; Nominal Pass
+   Variables:  MCC.Element1 = 0.6, MCC.Element2 = 0.256327744255
+   Goals and achieved values:
+      geoSat.EarthMJ2000Eq.INC  Desired: 2  Achieved: 18.2845973293  Variance: -16.2845973293
+      geoSat.RMAG  Desired: 42195  Achieved: 24212.9094489  Variance: 17982.0905511
+
+   Completed iteration 2, pert 1 (MCC.Element1 = 0.6001)
+   Completed iteration 2, pert 2 (MCC.Element2 = 0.256427744255)
+
+DC Iteration 3; Nominal Pass
+   Variables:  MCC.Element1 = 0.937961730014, MCC.Element2 = 0.733962094346
+   Goals and achieved values:
+      geoSat.EarthMJ2000Eq.INC  Desired: 2  Achieved: 5.8510533615  Variance: -3.8510533615
+      geoSat.RMAG  Desired: 42195  Achieved: 53427.9851464  Variance: -11232.9851464
+
+   Completed iteration 3, pert 1 (MCC.Element1 = 0.938061730014)
+   Completed iteration 3, pert 2 (MCC.Element2 = 0.734062094346)
+
+DC Iteration 4; Nominal Pass
+   Variables:  MCC.Element1 = 0.774251582121, MCC.Element2 = 0.804404992798
+   Goals and achieved values:
+      geoSat.EarthMJ2000Eq.INC  Desired: 2  Achieved: 1.73929524645  Variance: 0.260704753547
+      geoSat.RMAG  Desired: 42195  Achieved: 43664.0198644  Variance: -1469.01986436
+
+   Completed iteration 4, pert 1 (MCC.Element1 = 0.774351582121)
+   Completed iteration 4, pert 2 (MCC.Element2 = 0.804504992798)
+
+DC Iteration 5; Nominal Pass
+   Variables:  MCC.Element1 = 0.76014543152, MCC.Element2 = 0.788194042905
+   Goals and achieved values:
+      geoSat.EarthMJ2000Eq.INC  Desired: 2  Achieved: 2.00293591846  Variance: -0.00293591846477
+      geoSat.RMAG  Desired: 42195  Achieved: 42220.8017586  Variance: -25.8017586337
+
+   Completed iteration 5, pert 1 (MCC.Element1 = 0.76024543152)
+   Completed iteration 5, pert 2 (MCC.Element2 = 0.788294042905)
+
+DC Iteration 6; Nominal Pass
+   Variables:  MCC.Element1 = 0.759781464719, MCC.Element2 = 0.788113772622
+   Goals and achieved values:
+      geoSat.EarthMJ2000Eq.INC  Desired: 2  Achieved: 1.99999919152  Variance: 8.08479530434e-07
+      geoSat.RMAG  Desired: 42195  Achieved: 42195.010066  Variance: -0.0100659911768
+
+   Completed iteration 6, pert 1 (MCC.Element1 = 0.759881464719)
+   Completed iteration 6, pert 2 (MCC.Element2 = 0.788213772622)
+
+DC Iteration 7; Nominal Pass
+   Variables:  MCC.Element1 = 0.759781349574, MCC.Element2 = 0.788113687397
+   Goals and achieved values:
+      geoSat.EarthMJ2000Eq.INC  Desired: 2  Achieved: 1.99999999998  Variance: 2.17426077143e-11
+      geoSat.RMAG  Desired: 42195  Achieved: 42195.0000008  Variance: -8.36429535411e-07
+
+
+*** Targeting Completed in 7 iterations.
+*** The Targeter converged!
+Final Variable values:
+   MCC.Element1 = 0.759781349574
+   MCC.Element2 = 0.788113687397
+
+********************************************************
+*** Performing Differential Correction (using "DC")
+*** 1 variables; 1 goals
+   Variables:  MOI.Element1
+   Goals:  geoSat.Earth.SMA
+   SolverMode:  Solve
+********************************************************
+DC Iteration 1; Nominal Pass
+   Variables:  MOI.Element1 = -0.1
+   Goals and achieved values:
+      geoSat.Earth.SMA  Desired: 42166.9  Achieved: 57242.5935761  Variance: -15075.6935761
+
+   Completed iteration 1, pert 1 (MOI.Element1 = -0.0999)
+
+DC Iteration 2; Nominal Pass
+   Variables:  MOI.Element1 = -0.2
+   Goals and achieved values:
+      geoSat.Earth.SMA  Desired: 42166.9  Achieved: 52144.5234862  Variance: -9977.62348622
+
+   Completed iteration 2, pert 1 (MOI.Element1 = -0.1999)
+
+DC Iteration 3; Nominal Pass
+   Variables:  MOI.Element1 = -0.3
+   Goals and achieved values:
+      geoSat.Earth.SMA  Desired: 42166.9  Achieved: 47995.5748019  Variance: -5828.67480189
+
+   Completed iteration 3, pert 1 (MOI.Element1 = -0.2999)
+
+DC Iteration 4; Nominal Pass
+   Variables:  MOI.Element1 = -0.4
+   Goals and achieved values:
+      geoSat.Earth.SMA  Desired: 42166.9  Achieved: 44557.5941032  Variance: -2390.69410318
+
+   Completed iteration 4, pert 1 (MOI.Element1 = -0.3999)
+
+DC Iteration 5; Nominal Pass
+   Variables:  MOI.Element1 = -0.476084013826
+   Goals and achieved values:
+      geoSat.Earth.SMA  Desired: 42166.9  Achieved: 42314.8122253  Variance: -147.912225345
+
+   Completed iteration 5, pert 1 (MOI.Element1 = -0.475984013826)
+
+DC Iteration 6; Nominal Pass
+   Variables:  MOI.Element1 = -0.481432602659
+   Goals and achieved values:
+      geoSat.Earth.SMA  Desired: 42166.9  Achieved: 42167.5548271  Variance: -0.654827081467
+
+   Completed iteration 6, pert 1 (MOI.Element1 = -0.481332602659)
+
+DC Iteration 7; Nominal Pass
+   Variables:  MOI.Element1 = -0.48145648876
+   Goals and achieved values:
+      geoSat.Earth.SMA  Desired: 42166.9  Achieved: 42166.9000659  Variance: -6.59372017253e-05
+
+
+*** Targeting Completed in 7 iterations.
+*** The Targeter converged!
+Final Variable values:
+   MOI.Element1 = -0.48145648876
+
+Mission run completed.
+===> Total Run Time: 2.131981 seconds
+
+========================================
+
+
+*** GMAT Integration test (Console version) successful! ***
+
+Moderator is deleting core engine...

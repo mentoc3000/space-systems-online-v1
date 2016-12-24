@@ -1,0 +1,222 @@
+
+********************************************
+***  GMAT Console Application
+********************************************
+
+General Mission Analysis Tool
+Console Based Version
+Build Date: Oct  6 2016  09:50:38
+
+
+GMAT working directory set to '/home/mentoc3000/sso/lib/gmat-dist/R2016a/bin/'
+Moderator is updating data files...
+Moderator is creating core engine...
+
+libmx.so: cannot open shared object file: No such file or directory
+*** Library "../plugins/libMatlabInterface" did not open.
+
+../plugins/proprietary/libMarsGRAM.so: cannot open shared object file: No such file or directory
+*** Library "../plugins/proprietary/libMarsGRAM" did not open.
+
+../plugins/proprietary/libMsise86.so: cannot open shared object file: No such file or directory
+*** Library "../plugins/proprietary/libMsise86" did not open.
+
+../plugins/proprietary/libNRLMsise00.so: cannot open shared object file: No such file or directory
+*** Library "../plugins/proprietary/libNRLMsise00" did not open.
+
+../plugins/proprietary/libSNOptimizer.so: cannot open shared object file: No such file or directory
+*** Library "../plugins/proprietary/libSNOptimizer" did not open.
+
+../plugins/proprietary/libVF13Optimizer.so: cannot open shared object file: No such file or directory
+*** Library "../plugins/proprietary/libVF13Optimizer" did not open.
+For body Sun, not using potential file, so using default mu (132712440017.990005493164062500)
+Successfully set Planetary Source to use: DE405
+Successfully set Planetary Source to use: DE405
+Successfully set Planetary Source to use: DE405
+Setting nutation file to ../data/planetary_coeff/NUTATION.DAT
+Setting leap seconds file to ../data/time/tai-utc.dat
+2016-12-24 00:19:08 GMAT Moderator successfully created core engine
+
+Interpreting scripts from the file.
+***** file: /home/mentoc3000/sso/lib/gmat-dist/R2016a/samples/Ex_MarsBPlane.script
+Successfully set Planetary Source to use: DE405
+Successfully set Planetary Source to use: DE405
+For body Earth, not using potential file, so using default mu (398600.441500000015366822)
+For body Earth, not using potential file, so using default eq. radius (6378.136300000000119326)
+Successfully interpreted the script
+.................... Print out the whole sequence ........................................
+   Command::NoOp
+   Command::BeginMissionSequence
+   Command::Target
+   ... branch 0::Vary
+   ... branch 0::Vary
+   ... branch 0::Vary
+   ... branch 0::Propagate
+   ... branch 0::Propagate
+   ... branch 0::Maneuver
+   ... branch 0::Propagate
+   ... branch 0::Propagate
+   ... branch 0::Achieve
+   ... branch 0::Achieve
+   ... branch 0::EndTarget
+   Command::Target
+   ... branch 0::Vary
+   ... branch 0::Maneuver
+   ... branch 0::Propagate
+   ... branch 0::Achieve
+   ... branch 0::EndTarget
+   Command::Propagate
+.................... End sequence ........................................................
+Running mission...
+Successfully set Planetary Source to use: DE405
+Successfully set Planetary Source to use: DE405
+Kernel ../data/planetary_ephem/spk/DE405AllPlanets.bsp has been loaded.
+Kernel ../data/planetary_coeff/SPICEPlanetaryConstantsKernel.tpc has been loaded.
+Kernel ../data/time/SPICELeapSecondKernel.tls has been loaded.
+Kernel ../data/planetary_coeff/earth_070425_370426_predict.bpc has been loaded.
+Kernel ../data/planetary_coeff/earth_720101_070426.bpc has been loaded.
+Kernel ../data/planetary_coeff/earth_latest_high_prec.bpc has been loaded.
+Kernel ../data/planetary_coeff/moon_pa_de421_1900-2050.bpc has been loaded.
+Kernel ../data/planetary_coeff/moon_080317.tf has been loaded.
+For body Earth, not using potential file, so using default mu (398600.441500000015366822)
+For body Earth, not using potential file, so using default eq. radius (6378.136300000000119326)
+For body Mars, not using potential file, so using default mu (42828.314258067002811003)
+For body Mars, not using potential file, so using default eq. radius (3397.000000000000000000)
+For body Luna, not using potential file, so using default mu (4902.800582147800014354)
+For body Sun, not using potential file, so using default mu (132712440017.990005493164062500)
+For body Sun, not using potential file, so using default eq. radius (695990.000000000000000000)
+For body Venus, not using potential file, so using default mu (324858.598826460016425699)
+For body Jupiter, not using potential file, so using default mu (126712767.857800006866455078)
+For body Saturn, not using potential file, so using default mu (37940626.061136998236179352)
+For body Uranus, not using potential file, so using default mu (5794549.007071900181472301)
+For body Neptune, not using potential file, so using default mu (6836534.063879299908876419)
+********************************************************
+*** Performing Differential Correction (using "DC")
+*** 3 variables; 2 goals
+   Variables:  TCM1.Element1, TCM1.Element2, TCM1.Element3
+   Goals:  MAVEN.MarsInertial.BdotT, MAVEN.MarsInertial.BdotR
+   SolverMode:  Solve
+********************************************************
+DC Iteration 1; Nominal Pass
+   Variables:  TCM1.Element1 = 1e-05, TCM1.Element2 = 1e-05, TCM1.Element3 = 1e-05
+   Goals and achieved values:
+      MAVEN.MarsInertial.BdotT  Desired: 2700  Achieved: 54897.2330345  Variance: -52197.2330345
+      MAVEN.MarsInertial.BdotR  Desired: -7000  Achieved: -20347.7768016  Variance: 13347.7768016
+
+   Completed iteration 1, pert 1 (TCM1.Element1 = 2e-05)
+   Completed iteration 1, pert 2 (TCM1.Element2 = 2e-05)
+   Completed iteration 1, pert 3 (TCM1.Element3 = 2e-05)
+
+DC Iteration 2; Nominal Pass
+   Variables:  TCM1.Element1 = 0.00126460201904, TCM1.Element2 = 0.00201, TCM1.Element3 = -0.000222456264222
+   Goals and achieved values:
+      MAVEN.MarsInertial.BdotT  Desired: 2700  Achieved: 37246.0853265  Variance: -34546.0853265
+      MAVEN.MarsInertial.BdotR  Desired: -7000  Achieved: -15844.9343214  Variance: 8844.93432137
+
+   Completed iteration 2, pert 1 (TCM1.Element1 = 0.00127460201904)
+   Completed iteration 2, pert 2 (TCM1.Element2 = 0.00202)
+   Completed iteration 2, pert 3 (TCM1.Element3 = -0.000212456264222)
+
+DC Iteration 3; Nominal Pass
+   Variables:  TCM1.Element1 = 0.00252493852649, TCM1.Element2 = 0.00401, TCM1.Element3 = -0.000467228631743
+   Goals and achieved values:
+      MAVEN.MarsInertial.BdotT  Desired: 2700  Achieved: 19655.0305601  Variance: -16955.0305601
+      MAVEN.MarsInertial.BdotR  Desired: -7000  Achieved: -11351.8534375  Variance: 4351.85343746
+
+   Completed iteration 3, pert 1 (TCM1.Element1 = 0.00253493852649)
+   Completed iteration 3, pert 2 (TCM1.Element2 = 0.00402)
+   Completed iteration 3, pert 3 (TCM1.Element3 = -0.000457228631743)
+
+DC Iteration 4; Nominal Pass
+   Variables:  TCM1.Element1 = 0.00374871977232, TCM1.Element2 = 0.00594356945694, TCM1.Element3 = -0.000715957504045
+   Goals and achieved values:
+      MAVEN.MarsInertial.BdotT  Desired: 2700  Achieved: 2714.35459883  Variance: -14.3545988327
+      MAVEN.MarsInertial.BdotR  Desired: -7000  Achieved: -7015.70219866  Variance: 15.7021986595
+
+   Completed iteration 4, pert 1 (TCM1.Element1 = 0.00375871977232)
+   Completed iteration 4, pert 2 (TCM1.Element2 = 0.00595356945694)
+   Completed iteration 4, pert 3 (TCM1.Element3 = -0.000705957504045)
+
+DC Iteration 5; Nominal Pass
+   Variables:  TCM1.Element1 = 0.0037510142953, TCM1.Element2 = 0.00594816548838, TCM1.Element3 = -0.000716822539301
+   Goals and achieved values:
+      MAVEN.MarsInertial.BdotT  Desired: 2700  Achieved: 2699.99244497  Variance: 0.00755503292567
+      MAVEN.MarsInertial.BdotR  Desired: -7000  Achieved: -7000.00243551  Variance: 0.00243551413951
+
+
+*** Targeting Completed in 5 iterations.
+*** The Targeter converged!
+Final Variable values:
+   TCM1.Element1 = 0.0037510142953
+   TCM1.Element2 = 0.00594816548838
+   TCM1.Element3 = -0.000716822539301
+
+********************************************************
+*** Performing Differential Correction (using "DC")
+*** 1 variables; 1 goals
+   Variables:  MOI.Element1
+   Goals:  MAVEN.Mars.RMAG
+   SolverMode:  Solve
+********************************************************
+DC Iteration 1; Nominal Pass
+   Variables:  MOI.Element1 = -2
+   Goals and achieved values:
+      MAVEN.Mars.RMAG  Desired: 12000  Achieved: 6823.56212679  Variance: 5176.43787321
+
+   Completed iteration 1, pert 1 (MOI.Element1 = -1.99999)
+
+DC Iteration 2; Nominal Pass
+   Variables:  MOI.Element1 = -1.9
+   Goals and achieved values:
+      MAVEN.Mars.RMAG  Desired: 12000  Achieved: 7952.62956842  Variance: 4047.37043158
+
+   Completed iteration 2, pert 1 (MOI.Element1 = -1.89999)
+
+DC Iteration 3; Nominal Pass
+   Variables:  MOI.Element1 = -1.8
+   Goals and achieved values:
+      MAVEN.Mars.RMAG  Desired: 12000  Achieved: 9378.80903911  Variance: 2621.19096089
+
+   Completed iteration 3, pert 1 (MOI.Element1 = -1.79999)
+
+DC Iteration 4; Nominal Pass
+   Variables:  MOI.Element1 = -1.7
+   Goals and achieved values:
+      MAVEN.Mars.RMAG  Desired: 12000  Achieved: 11234.6341144  Variance: 765.365885565
+
+   Completed iteration 4, pert 1 (MOI.Element1 = -1.69999)
+
+DC Iteration 5; Nominal Pass
+   Variables:  MOI.Element1 = -1.66414468535
+   Goals and achieved values:
+      MAVEN.Mars.RMAG  Desired: 12000  Achieved: 12043.4759271  Variance: -43.4759271053
+
+   Completed iteration 5, pert 1 (MOI.Element1 = -1.66413468535)
+
+DC Iteration 6; Nominal Pass
+   Variables:  MOI.Element1 = -1.66596833287
+   Goals and achieved values:
+      MAVEN.Mars.RMAG  Desired: 12000  Achieved: 12000.1258649  Variance: -0.12586490896
+
+   Completed iteration 6, pert 1 (MOI.Element1 = -1.66595833287)
+
+DC Iteration 7; Nominal Pass
+   Variables:  MOI.Element1 = -1.66597364295
+   Goals and achieved values:
+      MAVEN.Mars.RMAG  Desired: 12000  Achieved: 12000.0000031  Variance: -3.05438334181e-06
+
+
+*** Targeting Completed in 7 iterations.
+*** The Targeter converged!
+Final Variable values:
+   MOI.Element1 = -1.66597364295
+
+Mission run completed.
+===> Total Run Time: 3.719286 seconds
+
+========================================
+
+
+*** GMAT Integration test (Console version) successful! ***
+
+Moderator is deleting core engine...
