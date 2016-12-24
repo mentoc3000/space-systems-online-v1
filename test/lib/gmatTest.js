@@ -28,17 +28,26 @@ describe('GMAT module tests',function() {
                });
          });
       }
+
+      function readScript(filename) {
+         var dir = path.join(__dirname,'../../lib/gmat-dist/R2016a/samples/');
+         var filepath = dir + filename + ".script";
+         return fs.readFileSync(filepath);
+      }
    });
+
+   describe('runSim', function() {
+
+      it('runs a Hohmann Transfer simulation', function() {
+         var simulation = {
+            
+         };
+      });
+   });
+
+   function readOutput(filename) {
+      var dir = path.join(__dirname,'script-output/');
+      var filepath = dir + filename + '.output';
+      return fs.readFileSync(filepath);
+   }
 });
-
-function readScript(filename) {
-   var dir = path.join(__dirname,'../../lib/gmat-dist/R2016a/samples/');
-   var filepath = dir + filename + ".script";
-   return fs.readFileSync(filepath);
-}
-
-function readOutput(filename) {
-   var dir = path.join(__dirname,'script-output/');
-   var filepath = dir + filename + '.output';
-   return fs.readFileSync(filepath);
-}
