@@ -3,26 +3,141 @@
 var expect = require('chai').expect;
 var scriptBuilder = require('../../lib/scriptBuilder');
 
+function baseSimulation() {
+
+   var simulation = {
+      simulator: {
+      },
+      ground: {
+         celestialBody: 'Earth',
+         groundStations: [
+            {
+               name: 'station1',
+               latitude: 10,
+               longitude: -20,
+               transmitter: 'transmitter1', //name
+               receiver: 'receiver1' //name
+            },
+            {
+               name: 'station2',
+               latitude: -34,
+               longitude: 78,
+               transmitter: 'transmitter2', //name
+               receiver: 'receiver2' //name
+            }
+         ],
+         hardware: { // all hardware must be named
+            transmitter: [ 
+               {
+               } 
+            ],
+            receiver: [ 
+               {
+               } 
+            ],
+            antenna: [ 
+               {
+               } 
+            ]
+         }
+      },
+      space: {
+         hardware: { // all hardware must be named
+            transmitter: [ 
+               {
+               }
+            ],
+            receiver: [ 
+               {
+               }
+            ],
+            antenna: [
+               {
+                  name: 'satAntenna1'
+               }
+            ],
+            thruster: [ 
+               {
+               }
+            ],
+            tank: [ 
+               {
+               }
+            ],
+            solarPower: [
+               {
+               }
+            ],
+            nuclearPower: [
+               {
+               }
+            ],
+            navigation: [
+               {
+               }
+            ]
+         },
+         craft: {
+            name: 'sat1',
+            attitude: {
+            },
+            ballistics: {
+            },
+            hardware: [ 
+            ],
+            mission: {
+               initial: {
+                  orbit: {
+                     X: 1000,
+                     Y: 82041,
+                     Z: 1842.132,
+                     VX: -892.12,
+                     VY: -394.15,
+                     VZ: 834.87,
+                     SMA: 4.12,
+                     ECC: -91.2,
+                     INC: 0.42341,
+                     RAAN: -94.1112,
+                     AOP: 0.000391,
+                     TA: 81.213,
+                     RadPer: -991.231,
+                     RadApo: 8.12874
+                  },
+                  epoch: {
+                     DateFormat: 'dateFormat',
+                     Epoch: 'epoch',
+                  }
+               },
+               sequence: [
+                  {
+                     element: 'Propagate',
+                     propagatorName: 'propagatorName',
+                     spacecraftName: 'satellite',
+                     stopCondition: [
+                        'sat.TA = 90',
+                        'sat.Apoapsis'
+                     ]
+                  }
+               ]
+            }
+         }
+      }
+   };
+   return simulation;
+}
+
 describe('Script Builder Tests', function() {
+   var simulation;
+
    describe('antenna',function() {
-      var antennaData;
       beforeEach(function() {
-         antennaData = {
-            name: 'antennaName'
-         };
+         simulation = baseSimulation();
       });
 
       it('outputs create antenna line', function() {
-         var output = scriptBuilder.antenna(antennaData);
-         expect(output).to.equal('Create Antenna ' + antennaData.name + ';');
+         var output = scriptBuilder.antenna(simulation.space.hardware.antenna);
+         expect(output).to.equal('Create Antenna ' + simulation.space.hardware.antenna.name + ';');
       });
-
-      it('requires the antenna name', function() {
-         delete antennaData.name;
-
-         expect(scriptBuilder.antenna.bind(scriptBuilder,antennaData)).to.throw(Error);
-      });
-
    });
 
    describe.skip('array', function() {
@@ -119,28 +234,12 @@ describe('Script Builder Tests', function() {
    });
 
    describe('spacecraft',function() {
-      var spacecraftData;
-      spacecraftData = {
-         name: 'spacecraftName',
-         DateFormat: 'dateFormat',
-         Epoch: 'epoch',
-         X: 1000,
-         Y: 82041,
-         Z: 1842.132,
-         VX: -892.12,
-         VY: -394.15,
-         VZ: 834.87,
-         SMA: 4.12,
-         ECC: -91.2,
-         INC: 0.42341,
-         RAAN: -94.1112,
-         AOP: 0.000391,
-         TA: 81.213,
-         RadPer: -991.231,
-         RadApo: 8.12874
-      };
-      var output = scriptBuilder.spacecraft(spacecraftData);
-      var regex;
+      var spacecraftData, output, regex;
+      beforeEach(function() {
+         simulation = baseSimulation();
+         spacecraftData = simulation.space.craft;
+         output = scriptBuilder.spacecraft(spacecraftData);
+      });
 
       it('Creates the spacecraft', function() {
          regex = new RegExp('^Create Spacecraft ' + spacecraftData.name + ';');
@@ -251,15 +350,12 @@ describe('Script Builder Tests', function() {
    });
 
    describe('propagate',function() {
-      var propagateData = {
-         propagatorName: 'propagatorName',
-         spacecraftName: 'satellite',
-         stopCondition: [
-            'sat.TA = 90',
-            'sat.Apoapsis'
-         ]
-      };
-      var output = scriptBuilder.propagate(propagateData);
+      var propagateData, output;
+      beforeEach(function() {
+         simulation = baseSimulation();
+         propagateData = simulation.space.craft.mission.sequence[0];
+         output = scriptBuilder.propagate(propagateData);
+      });
 
       it('builds script line', function() {
          var expected = 'Propagate ' + propagateData.propagatorName +
