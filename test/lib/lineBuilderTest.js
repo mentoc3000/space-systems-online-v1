@@ -126,7 +126,7 @@ function baseSimulation() {
    return simulation;
 }
 
-describe('Script Builder Tests', function() {
+describe('Line Builder Tests', function() {
    var simulation;
 
    describe('antenna',function() {
