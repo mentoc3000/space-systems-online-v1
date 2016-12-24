@@ -1,7 +1,7 @@
 'use strict';
 
 var expect = require('chai').expect;
-var scriptBuilder = require('../../lib/scriptBuilder');
+var scriptBuilder = require('../../lib/lineBuilder');
 
 function baseSimulation() {
 
@@ -110,7 +110,7 @@ function baseSimulation() {
                },
                sequence: [
                   {
-                     element: 'Propagate',
+                     type: 'Propagate',
                      propagatorName: 'propagatorName',
                      spacecraftName: 'satellite',
                      stopCondition: [

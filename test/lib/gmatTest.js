@@ -38,7 +38,7 @@ describe('GMAT module tests',function() {
 
    describe('runSim', function() {
 
-      it('runs a Hohmann Transfer simulation', function() {
+      it('runs basic propagation', function() {
          var simulation = {
             
          };
