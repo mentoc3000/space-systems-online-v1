@@ -12,6 +12,6 @@ module.exports = service;
 
 function runScript(input) {
 
-   return gmat.runScript(input);
+   return gmat.runSim(JSON.parse(input));
 
 }
