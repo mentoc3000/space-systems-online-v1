@@ -415,46 +415,40 @@ describe('Line Builder Tests', function() {
 
 describe('Script Builder Tests', function() {
    describe('Spacecraft builder', function() {
-      var spacecraftData, output;
-      beforeEach(function() {
-         var fullSim = baseSimulation();
-         spacecraftData = fullSim.space.craft;
-         output = scriptBuilder.buildSpacecraft(spacecraftData);
-      });
 
       it('adds spacecraft lines', function() {
+         var fullSim = baseSimulation();
+         var spacecraftData = fullSim.space.craft;
+         var output = scriptBuilder.buildSpacecraft(spacecraftData);
          var spacecraftOutput = scriptBuilder.buildSpacecraft(spacecraftData);
          expect(output).to.contain(spacecraftOutput);
       });
    });
 
    describe('Hardware builder', function() {
-      var hardwareData, output;
-      beforeEach(function() {
-         var fullSim = baseSimulation();
-         hardwareData = fullSim.space.hardware;
-         output = scriptBuilder.buildHardware(hardwareData);
-      });
 
       it('adds antenna lines', function() {
+         var fullSim = baseSimulation();
+         var hardwareData = fullSim.space.hardware;
+         var output = scriptBuilder.buildHardware(hardwareData);
          var antennaOutput = scriptBuilder.block.antenna(hardwareData.antenna[0]);
          expect(output).to.contain(antennaOutput);
       });
    });
 
    describe('Mission Sequence builder', function() {
-      var sequenceData, output;
-      beforeEach(function() {
-         var fullSim = baseSimulation();
-         sequenceData = fullSim.space.craft.mission.sequence;
-         output = scriptBuilder.buildMissionSequence(sequenceData);
-      });
 
       it('begins the mission sequence', function() {
+         var fullSim = baseSimulation();
+         var sequenceData = fullSim.space.craft.mission.sequence;
+         var output = scriptBuilder.buildMissionSequence(sequenceData);
          expect(output).to.contain(scriptBuilder.block.beginMissionSequence());
       });
 
       it('contains the propagate lines', function() {
+         var fullSim = baseSimulation();
+         var sequenceData = fullSim.space.craft.mission.sequence;
+         var output = scriptBuilder.buildMissionSequence(sequenceData);
          expect(output).to.contain(scriptBuilder.block.propagate(sequenceData[0]));
       });
    });
