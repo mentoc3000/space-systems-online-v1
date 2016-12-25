@@ -437,6 +437,11 @@ describe('Script Builder Tests', function() {
 
    describe('Hardware builder', function() {
 
+      it('builds empty string for empty object', function() {
+         var output = scriptBuilder.buildHardware({});
+         expect(output).to.equal('');
+      });
+
       it('adds antenna lines', function() {
          var fullSim = baseSimulation();
          var hardwareData = fullSim.space.hardware;
@@ -447,6 +452,11 @@ describe('Script Builder Tests', function() {
    });
 
    describe('Mission Sequence builder', function() {
+      
+      it('builds empty string for empty object', function() {
+         var output = scriptBuilder.buildMissionSequence({});
+         expect(output).to.equal('');
+      });
 
       it('begins the mission sequence', function() {
          var fullSim = baseSimulation();
