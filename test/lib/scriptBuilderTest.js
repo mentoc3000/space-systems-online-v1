@@ -155,6 +155,11 @@ describe('Line Builder Tests', function() {
          var output = scriptBuilder.block.antenna(simulation.space.hardware.antenna);
          expect(output).to.equal('Create Antenna ' + simulation.space.hardware.antenna.name + ';');
       });
+
+      it('outputs empty string if antenna is empty', function () {
+         var output = scriptBuilder.block.antenna({});
+         expect(output).to.equal('');
+      });
    });
 
    describe.skip('array', function() {
@@ -275,6 +280,11 @@ describe('Line Builder Tests', function() {
             expect(output).to.match(regex);
          });
       }
+
+      it('outputs an empty string when spacecraft is blank', function() {
+         output = scriptBuilder.block.spacecraft({});
+         expect(output).to.equal('');
+      });
 
    });
 
