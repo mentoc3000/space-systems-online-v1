@@ -1,6 +1,7 @@
 'use strict';
 
 var expect = require('chai').expect;
+var sinon = require('sinon');
 var scriptBuilder = require('../../lib/scriptBuilder');
 
 function baseSimulation() {
@@ -26,6 +27,7 @@ function baseSimulation() {
                receiver: 'receiver2' //name
             }
          ],
+         /*
          hardware: { // all hardware must be named
             transmitter: [ 
                {
@@ -40,42 +42,57 @@ function baseSimulation() {
                } 
             ]
          }
+         */
       },
       space: {
          hardware: { // all hardware must be named
+            /*
             transmitter: [ 
                {
                }
             ],
+            */
+            /*
             receiver: [ 
                {
                }
             ],
+            */
             antenna: [
                {
                   name: 'satAntenna1'
                }
             ],
+            /*
             thruster: [ 
                {
                }
             ],
+            */
+            /*
             tank: [ 
                {
                }
             ],
+            */
+            /*
             solarPower: [
                {
                }
             ],
+            */
+            /*
             nuclearPower: [
                {
                }
             ],
+            */
+            /*
             navigation: [
                {
                }
             ]
+            */
          },
          craft: {
             name: 'sat1',
@@ -110,7 +127,7 @@ function baseSimulation() {
                },
                sequence: [
                   {
-                     type: 'Propagate',
+                     type: 'propagate',
                      propagatorName: 'propagatorName',
                      spacecraftName: 'satellite',
                      stopCondition: [
@@ -393,5 +410,52 @@ describe('Line Builder Tests', function() {
    });
 
    describe.skip('write',function() {
+   });
+});
+
+describe('Script Builder Tests', function() {
+   describe('Spacecraft builder', function() {
+      var spacecraftData, output;
+      beforeEach(function() {
+         var fullSim = baseSimulation();
+         spacecraftData = fullSim.space.craft;
+         output = scriptBuilder.buildSpacecraft(spacecraftData);
+      });
+
+      it('adds spacecraft lines', function() {
+         var spacecraftOutput = scriptBuilder.buildSpacecraft(spacecraftData);
+         expect(output).to.contain(spacecraftOutput);
+      });
+   });
+
+   describe('Hardware builder', function() {
+      var hardwareData, output;
+      beforeEach(function() {
+         var fullSim = baseSimulation();
+         hardwareData = fullSim.space.hardware;
+         output = scriptBuilder.buildHardware(hardwareData);
+      });
+
+      it('adds antenna lines', function() {
+         var antennaOutput = scriptBuilder.block.antenna(hardwareData.antenna[0]);
+         expect(output).to.contain(antennaOutput);
+      });
+   });
+
+   describe('Mission Sequence builder', function() {
+      var sequenceData, output;
+      beforeEach(function() {
+         var fullSim = baseSimulation();
+         sequenceData = fullSim.space.craft.mission.sequence;
+         output = scriptBuilder.buildMissionSequence(sequenceData);
+      });
+
+      it('begins the mission sequence', function() {
+         expect(output).to.contain(scriptBuilder.block.beginMissionSequence());
+      });
+
+      it('contains the propagate lines', function() {
+         expect(output).to.contain(scriptBuilder.block.propagate(sequenceData[0]));
+      });
    });
 });
