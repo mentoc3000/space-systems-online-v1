@@ -17,9 +17,9 @@
 
       // http routines
 
-      function Submit(input) {
+      function Submit(script) {
          var body = {
-            input: input
+            script: script
          };
          return $http.post('/api/sim/submit',body)
          .then(handleSuccess,handleError);

@@ -22,7 +22,7 @@
       function submit() {
          ScriptService.Submit(vm.input)
          .then(function(output) {
-            vm.output = output;
+            vm.output = output.stdout;
          });
       }
       
