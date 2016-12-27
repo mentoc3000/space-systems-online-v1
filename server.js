@@ -18,6 +18,7 @@ app.use(session({
    resave: false,
    saveUninitialized: true
 }));
+app.use('/bower_components', express.static(__dirname + '/bower_components/'));
 
 // use JWT auth to secure the api
 app.use('/api',
