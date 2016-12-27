@@ -41,7 +41,10 @@ describe('ScriptController Tests', function() {
          var promise = new Q.Promise(
             function resolver(resolve, reject){
                var deferred = Q.defer();
-               deferred.resolve(data);
+               var output = {
+                  stdout: data
+               };
+               deferred.resolve(output);
                spyOn(ScriptService,'Submit').and.returnValue(deferred.promise);
                controller = $controller('ScriptController', {
                   ScriptService: ScriptService
