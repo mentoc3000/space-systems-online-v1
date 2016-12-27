@@ -48,10 +48,10 @@
          .state('simulator', {
             url: '/simulator',
             views: {
-               "header": header,
+               "header": none,
                "main": {
-                  templateUrl: 'simulator/script.html',
-                  controller: 'ScriptController',
+                  templateUrl: 'simulator/simulator.html',
+                  controller: 'SimulatorController',
                   controllerAs: 'vm'
                },
                "footer": none

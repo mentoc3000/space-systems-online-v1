@@ -1,0 +1,46 @@
+.input-holder {
+   text-align:center;
+   position:fixed;
+   left:0;
+   right:50%;
+   top:50px;
+   bottom:0;
+}
+
+.script textarea {
+   position: absolute;
+   top:60px;
+   bottom:40px;
+   left:5%;
+   width:90%;
+   border:1px solid grey;
+   resize:none;
+   overflow-y:auto;
+}
+
+.script button {
+   position:fixed!important;
+   bottom:5px!important;
+   right:55%!important;
+}
+
+.output-holder {
+   position:fixed;
+   right:0;
+   left:50%;
+   top:50px;
+   bottom:0;
+   text-align:center;
+}
+
+.output {
+   position:absolute;
+   top:60px;
+   bottom:40px;
+   right:5%;
+   width:90%;
+   border:1px solid grey;
+   overflow-y:auto;
+   text-align:left;
+   white-space: pre-line;
+}

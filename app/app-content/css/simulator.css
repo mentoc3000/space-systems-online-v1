@@ -1,46 +1,42 @@
-.input-holder {
-   text-align:center;
-   position:fixed;
-   left:0;
-   right:50%;
-   top:50px;
-   bottom:0;
-}
-
-.script textarea {
+.simulator {
    position: absolute;
-   top:60px;
-   bottom:40px;
-   left:5%;
-   width:90%;
-   border:1px solid grey;
-   resize:none;
-   overflow-y:auto;
+   width: 100%;
+   height: 100%;
 }
 
-.script button {
-   position:fixed!important;
-   bottom:5px!important;
-   right:55%!important;
+.simulator .main-menu-bar {
+   float: left;
+   width: 75px;
+   height: 100%;
+   background-color: red;
 }
 
-.output-holder {
-   position:fixed;
-   right:0;
-   left:50%;
-   top:50px;
-   bottom:0;
-   text-align:center;
+.simulator .main-menu {
+   list-style-type:none;
+   position: block;
+   margin: 0;
+   padding: 0;
 }
 
-.output {
-   position:absolute;
-   top:60px;
-   bottom:40px;
-   right:5%;
-   width:90%;
-   border:1px solid grey;
-   overflow-y:auto;
-   text-align:left;
-   white-space: pre-line;
+.simulator .main-menu-bottom {
+   position: absolute;
+   bottom: 0;
+}
+
+.simulator .main-menu li {
+   width: 75px;
+   height:75px;
+   line-height: 75px;
+   color:white;
+   text-align: center;
+}
+
+.simulator .main-menu li.sso {
+   height: 50px;
+   line-height: 50px;
+}
+
+.simulator .main-menu li:hover {
+   color: gray;
+   background-color:white;
 }
